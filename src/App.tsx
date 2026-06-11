@@ -47,69 +47,69 @@ const STAT_GRADIENT_COLORS = ['#06b6d4', '#155dfc', '#8b5cf6', '#10b981', '#f59e
 // ─── Portfolio (20 Projects — Real Clients) ────────────────────────────────────
 const PORTFOLIO_ITEMS = [
   // ── مطاعم ──
-  { id: 1,  title: 'Noir Bistro',            desc: 'موقع مطعم فاخر مع نظام حجوزات أونلاين زاد الحجوزات 320% في أول شهر. تصميم سينمائي يحكي قصة المطعم ويبيع التجربة قبل أن يصل العميل.',           tags: 'React • Stripe • Reservations', category: 'restaurant' as FilterKey, year: '2024', color: '#f59e0b', image: '/project_restaurant.jpg' },
-  { id: 2,  title: 'Spice Garden',            desc: 'موقع مطعم شرقي مع قائمة طعام تفاعلية وخدمة توصيل مدمجة. نسبة تحويل الزوار لطلبات وصلت 28% وهو رقم استثنائي في قطاع المطاعم.',            tags: 'Next.js • Maps API • PWA',    category: 'restaurant' as FilterKey, year: '2024', color: '#ef4444', image: '/project_restaurant.jpg' },
-  { id: 3,  title: 'The Grill House',         desc: 'موقع سلسلة مطاعم متعددة الفروع مع لوحة إدارة مركزية للقوائم والعروض. ضاعفت المبيعات الرقمية للسلسلة في 3 أشهر.',                                    tags: 'React • Node • Dashboard',    category: 'restaurant' as FilterKey, year: '2023', color: '#10b981', image: '/project_restaurant.jpg' },
-  { id: 4,  title: 'Sakura Japanese',         desc: 'تجربة رقمية تفاعلية لمطعم ياباني راقٍ مع عرض بصري للأطباق وقائمة ذكية. متوسط قيمة الحجز ارتفع 45% بعد إطلاق الموقع الجديد.',                     tags: 'React • GSAP • Booking',      category: 'restaurant' as FilterKey, year: '2024', color: '#8b5cf6', image: '/project_restaurant.jpg' },
+  { id: 1,  title: 'Noir Bistro', titleAr: 'مطعم نوار بيسترو (Noir Bistro)', desc: 'موقع مطعم فاخر مع نظام حجوزات أونلاين زاد الحجوزات 320% في أول شهر. تصميم سينمائي يحكي قصة المطعم ويبيع التجربة قبل أن يصل العميل.', tags: 'React • Stripe • Reservations', tagsAr: 'رياكت • دفع إلكتروني • حجوزات أونلاين', category: 'restaurant' as FilterKey, year: '2024', color: '#f59e0b', image: '/project_restaurant.jpg' },
+  { id: 2,  title: 'Spice Garden', titleAr: 'حديقة التوابل (Spice Garden)', desc: 'موقع مطعم شرقي مع قائمة طعام تفاعلية وخدمة توصيل مدمجة. نسبة تحويل الزوار لطلبات وصلت 28% وهو رقم استثنائي في قطاع المطاعم.', tags: 'Next.js • Maps API • PWA', tagsAr: 'نكست جيه إس • خرائط تفاعلية • تطبيق ويب', category: 'restaurant' as FilterKey, year: '2024', color: '#ef4444', image: '/project_restaurant.jpg' },
+  { id: 3,  title: 'The Grill House', titleAr: 'بيت المشويات (The Grill House)', desc: 'موقع سلسلة مطاعم متعددة الفروع مع لوحة إدارة مركزية للقوائم والعروض. ضاعفت المبيعات الرقمية للسلسلة في 3 أشهر.', tags: 'React • Node • Dashboard', tagsAr: 'رياكت • نود • لوحة تحكم للمبيعات', category: 'restaurant' as FilterKey, year: '2023', color: '#10b981', image: '/project_restaurant.jpg' },
+  { id: 4,  title: 'Sakura Japanese', titleAr: 'ساكورا الياباني (Sakura Japanese)', desc: 'تجربة رقمية تفاعلية لمطعم ياباني راقٍ مع عرض بصري للأطباق وقائمة ذكية. متوسط قيمة الحجز ارتفع 45% بعد إطلاق الموقع الجديد.', tags: 'React • GSAP • Booking', tagsAr: 'رياكت • حركات تفاعلية • حجز فوري', category: 'restaurant' as FilterKey, year: '2024', color: '#8b5cf6', image: '/project_restaurant.jpg' },
   // ── كافيهات ──
-  { id: 5,  title: 'Roast & Co',              desc: 'موقع كافيه عصري مع متجر إلكتروني لبيع البن والمنتجات أونلاين. المتجر حقق 50,000 جنيه مبيعات في أول أسبوع من الإطلاق.',                              tags: 'Shopify • React • Analytics',  category: 'cafe' as FilterKey,       year: '2024', color: '#78716c', image: '/project_cafe.jpg' },
-  { id: 6,  title: 'Brew & Bean',             desc: 'هوية رقمية كاملة لكافيه بوتيك مع تطبيق بونص وبرنامج ولاء. قاعدة العملاء المتكررين نمت 180% خلال 6 أشهر من إطلاق التطبيق.',                       tags: 'React Native • Firebase • CRM', category: 'cafe' as FilterKey,      year: '2023', color: '#d97706', image: '/project_cafe.jpg' },
-  { id: 7,  title: 'The Cozy Corner',         desc: 'موقع كافيه محلي تحول لبراند قوي بتصميم يعكس الدفء والأصالة. الإيرادات الأونلاين غطت 40% من إجمالي المبيعات الشهرية.',                               tags: 'Next.js • Stripe • SEO',       category: 'cafe' as FilterKey,       year: '2024', color: '#92400e', image: '/project_cafe.jpg' },
-  { id: 8,  title: 'Matcha House',            desc: 'منصة كافيه صحي مع متتبع سعرات حرارية وقائمة ذكية. موقع بتجربة مستخدم استثنائية جعل العلامة التجارية رائدة في قطاع المشروبات الصحية.',             tags: 'React • PWA • Nutrition API', category: 'cafe' as FilterKey,       year: '2023', color: '#4d7c0f', image: '/project_cafe.jpg' },
+  { id: 5,  title: 'Roast & Co', titleAr: 'محمصة Roast & Co', desc: 'موقع كافيه عصري مع متجر إلكتروني لبيع البن والمنتجات أونلاين. المتجر حقق 50,000 جنيه مبيعات في أول أسبوع من الإطلاق.', tags: 'Shopify • React • Analytics', tagsAr: 'شوبيفاي • رياكت • تحليلات المبيعات', category: 'cafe' as FilterKey, year: '2024', color: '#78716c', image: '/project_cafe.jpg' },
+  { id: 6,  title: 'Brew & Bean', titleAr: 'كافيه Brew & Bean', desc: 'هوية رقمية كاملة لكافيه بوتيك مع تطبيق بونص وبرنامج ولاء. قاعدة العملاء المتكررين نمت 180% خلال 6 أشهر من إطلاق التطبيق.', tags: 'React Native • Firebase • CRM', tagsAr: 'تطبيق موبايل • فايربيس • إدارة العملاء', category: 'cafe' as FilterKey, year: '2023', color: '#d97706', image: '/project_cafe.jpg' },
+  { id: 7,  title: 'The Cozy Corner', titleAr: 'الركن الدافئ (The Cozy Corner)', desc: 'موقع كافيه محلي تحول لبراند قوي بتصميم يعكس الدفء والأصالة. الإيرادات الأونلاين غطت 40% من إجمالي المبيعات الشهرية.', tags: 'Next.js • Stripe • SEO', tagsAr: 'نكست جيه إس • دفع إلكتروني • تحسين محركات البحث SEO', category: 'cafe' as FilterKey, year: '2024', color: '#92400e', image: '/project_cafe.jpg' },
+  { id: 8,  title: 'Matcha House', titleAr: 'بيت الماتشا (Matcha House)', desc: 'منصة كافيه صحي مع متتبع سعرات حرارية وقائمة ذكية. موقع بتجربة مستخدم استثنائية جعل العلامة التجارية رائدة في قطاع المشروبات الصحية.', tags: 'React • PWA • Nutrition API', tagsAr: 'رياكت • تطبيق ويب • حساب السعرات', category: 'cafe' as FilterKey, year: '2023', color: '#4d7c0f', image: '/project_cafe.jpg' },
   // ── تعليم ومدرسين ──
-  { id: 9,  title: 'Mentor Elite',            desc: 'منصة مدرس خصوصي بنظام جلسات أونلاين وحجز فوري. المدرس ضاعف دخله الشهري 3 أضعاف بعد إطلاق المنصة ووصل لعملاء في 12 دولة.',                       tags: 'React • Stripe • Video API',  category: 'education' as FilterKey,  year: '2024', color: '#a855f7', image: '/project_tutor.jpg' },
-  { id: 10, title: 'EduCore Academy',         desc: 'أكاديمية تعليمية أونلاين كاملة مع كورسات مسجلة وشهادات ولوحة تقدم الطلاب. 2,000 طالب مسجل في أول 3 أشهر من الإطلاق.',                             tags: 'Next.js • Vimeo • Certificates', category: 'education' as FilterKey, year: '2024', color: '#06b6d4', image: '/project_school.jpg' },
-  { id: 11, title: 'Math Masters',            desc: 'منصة تعليم الرياضيات التفاعلية مع تمارين ذكية وتقارير تقدم للأهالي. المدرسة حققت 500 طالب جديد في الشهر الأول بدون أي إعلانات مدفوعة.',          tags: 'React • Canvas • Analytics',  category: 'education' as FilterKey,  year: '2023', color: '#155dfc', image: '/project_school.jpg' },
-  { id: 12, title: 'Language Hub',            desc: 'مركز تعليم لغات أونلاين مع جلسات محادثة مباشرة وتقييم تلقائي. معدل إكمال الكورسات 87% وهو الأعلى في القطاع على مستوى المنطقة.',                    tags: 'React • WebRTC • AI',         category: 'education' as FilterKey,  year: '2024', color: '#10b981', image: '/project_tutor.jpg' },
+  { id: 9,  title: 'Mentor Elite', titleAr: 'المعلم المتميز (Mentor Elite)', desc: 'منصة مدرس خصوصي بنظام جلسات أونلاين وحجز فوري. المدرس ضاعف دخله الشهري 3 أضعاف بعد إطلاق المنصة ووصل لعملاء في 12 دولة.', tags: 'React • Stripe • Video API', tagsAr: 'رياكت • دفع أونلاين • اتصال فيديو مباشر', category: 'education' as FilterKey, year: '2024', color: '#a855f7', image: '/project_tutor.jpg' },
+  { id: 10, title: 'EduCore Academy', titleAr: 'أكاديمية EduCore', desc: 'أكاديمية تعليمية أونلاين كاملة مع كورسات مسجلة وشهادات ولوحة تقدم الطلاب. 2,000 طالب مسجل في أول 3 أشهر من الإطلاق.', tags: 'Next.js • Vimeo • Certificates', tagsAr: 'نكست جيه إس • كورسات مسجلة • شهادات معتمدة', category: 'education' as FilterKey, year: '2024', color: '#06b6d4', image: '/project_school.jpg' },
+  { id: 11, title: 'Math Masters', titleAr: 'عباقرة الرياضيات (Math Masters)', desc: 'منصة تعليم الرياضيات التفاعلية مع تمارين ذكية وتقارير تقدم للأهالي. المدرسة حققت 500 طالب جديد في الشهر الأول بدون أي إعلانات مدفوعة.', tags: 'React • Canvas • Analytics', tagsAr: 'رياكت • لوحة تفاعلية • تحليلات الأداء', category: 'education' as FilterKey, year: '2023', color: '#155dfc', image: '/project_school.jpg' },
+  { id: 12, title: 'Language Hub', titleAr: 'مركز اللغات (Language Hub)', desc: 'مركز تعليم لغات أونلاين مع جلسات محادثة مباشرة وتقييم تلقائي. معدل إكمال الكورسات 87% وهو الأعلى في القطاع على مستوى المنطقة.', tags: 'React • WebRTC • AI', tagsAr: 'رياكت • محادثة فيديو مباشرة • ذكاء اصطناعي', category: 'education' as FilterKey, year: '2024', color: '#10b981', image: '/project_tutor.jpg' },
   // ── شركات ──
-  { id: 13, title: 'Axiom Group',             desc: 'موقع شركة استثمار عالمية يعكس القوة والمصداقية. عدد العملاء المحتملين الواردين عبر الموقع ارتفع 400% مقارنة بالموقع القديم.',                       tags: 'Next.js • GSAP • CRM',        category: 'corporate' as FilterKey,  year: '2024', color: '#22d3ee', image: '/project_corporate.jpg' },
-  { id: 14, title: 'TechBridge Solutions',    desc: 'هوية رقمية كاملة لشركة تقنية ناشئة وصلت لـ Series A بعد 4 أشهر من إطلاق الموقع الجديد. الموقع كان عامل حاسم في إقناع المستثمرين.',               tags: 'React • Framer • Analytics',  category: 'corporate' as FilterKey,  year: '2024', color: '#f43f5e', image: '/project_corporate.jpg' },
-  { id: 15, title: 'Gulf Logistics Co.',      desc: 'منصة شركة شحن ولوجستيات مع تتبع شحنات فوري ولوحة تحكم للعملاء. وفّرت الشركة 60% من وقت خدمة العملاء بعد إطلاق النظام.',                           tags: 'React • Maps API • Node',    category: 'corporate' as FilterKey,  year: '2023', color: '#84cc16', image: '/project_corporate.jpg' },
-  { id: 16, title: 'Vertex Real Estate',      desc: 'موقع شركة عقارات فاخر مع جولات افتراضية 360 درجة ونظام CRM مدمج. المبيعات الرقمية وصلت 45 مليون جنيه في السنة الأولى.',                              tags: 'React • Three.js • CRM',     category: 'corporate' as FilterKey,  year: '2024', color: '#fb923c', image: '/project_corporate.jpg' },
+  { id: 13, title: 'Axiom Group', titleAr: 'مجموعة Axiom الاستثمارية', desc: 'موقع شركة استثمار عالمية يعكس القوة والمصداقية. عدد العملاء المحتملين الواردين عبر الموقع ارتفع 400% مقارنة بالموقع القديم.', tags: 'Next.js • GSAP • CRM', tagsAr: 'نكست جيه إس • حركات مميزة • إدارة العملاء CRM', category: 'corporate' as FilterKey, year: '2024', color: '#22d3ee', image: '/project_corporate.jpg' },
+  { id: 14, title: 'TechBridge Solutions', titleAr: 'TechBridge للحلول التقنية', desc: 'هوية رقمية كاملة لشركة تقنية ناشئة وصلت لـ Series A بعد 4 أشهر من إطلاق الموقع الجديد. الموقع كان عامل حاسم في إقناع المستثمرين.', tags: 'React • Framer • Analytics', tagsAr: 'رياكت • حركات ناعمة • تحليلات البيانات', category: 'corporate' as FilterKey, year: '2024', color: '#f43f5e', image: '/project_corporate.jpg' },
+  { id: 15, title: 'Gulf Logistics Co.', titleAr: 'الخليج للخدمات اللوجستية', desc: 'منصة شركة شحن ولوجستيات مع تتبع شحنات فوري ولوحة تحكم للعملاء. وفّرت الشركة 60% من وقت خدمة العملاء بعد إطلاق النظام.', tags: 'React • Maps API • Node', tagsAr: 'رياكت • تتبع الخريطة • سيرفر نود', category: 'corporate' as FilterKey, year: '2023', color: '#84cc16', image: '/project_corporate.jpg' },
+  { id: 16, title: 'Vertex Real Estate', titleAr: 'Vertex للاستثمار العقاري', desc: 'موقع شركة عقارات فاخر مع جولات افتراضية 360 درجة ونظام CRM مدمج. المبيعات الرقمية وصلت 45 مليون جنيه في السنة الأولى.', tags: 'React • Three.js • CRM', tagsAr: 'رياكت • جولات 3D • نظام إدارة العملاء', category: 'corporate' as FilterKey, year: '2024', color: '#fb923c', image: '/project_corporate.jpg' },
   // ── مكاتب قانونية ومهنية ──
-  { id: 17, title: 'Sterling & Associates',   desc: 'موقع مكتب محاماة يُشعر الزبون بالثقة فور دخوله. معدل تحويل الاستشارات وصل 35% وهو أعلى من متوسط القطاع بـ 8 أضعاف.',                            tags: 'Next.js • Calendly • SEO',    category: 'legal' as FilterKey,      year: '2024', color: '#64748b', image: '/project_company.jpg' },
-  { id: 18, title: 'Elite Accounting Firm',   desc: 'هوية رقمية لمكتب محاسبة مع بوابة عملاء آمنة ونظام إدارة ملفات. وفّر المكتب 15 ساعة أسبوعياً في المتابعة الإدارية.',                               tags: 'React • Secure Portal • CRM', category: 'legal' as FilterKey,      year: '2023', color: '#94a3b8', image: '/project_company.jpg' },
-  { id: 19, title: 'MedCenter Clinic',        desc: 'موقع عيادة طبية متكامل مع حجز مواعيد ذكي وملفات مرضى رقمية. ساعات الانتظار انخفضت 70% ورضا المرضى وصل 98%.',                                       tags: 'React • HIPAA • Booking',     category: 'legal' as FilterKey,      year: '2024', color: '#0ea5e9', image: '/project_company.jpg' },
-  { id: 20, title: 'Prestige Consulting',     desc: 'موقع شركة استشارات إدارية يبيع الخبرة والثقة. طلبات الاستشارة تضاعفت 5 مرات وارتفع متوسط قيمة العقد 60% بعد إعادة الهوية الرقمية.',               tags: 'Next.js • GSAP • Analytics',  category: 'legal' as FilterKey,      year: '2023', color: '#c084fc', image: '/project_company.jpg' },
+  { id: 17, title: 'Sterling & Associates', titleAr: 'Sterling للمحاماة والاستشارات', desc: 'موقع مكتب محاماة يُشعر الزبون بالثقة فور دخوله. معدل تحويل الاستشارات وصل 35% وهو أعلى من متوسط القطاع بـ 8 أضعاف.', tags: 'Next.js • Calendly • SEO', tagsAr: 'نكست جيه إس • حجز استشارات • تحسين محركات البحث SEO', category: 'legal' as FilterKey, year: '2024', color: '#64748b', image: '/project_company.jpg' },
+  { id: 18, title: 'Elite Accounting Firm', titleAr: 'Elite للمحاسبة والمراجعة', desc: 'هوية رقمية لمكتب محاسبة مع بوابة عملاء آمنة ونظام إدارة ملفات. وفّر المكتب 15 ساعة أسبوعياً في المتابعة الإدارية.', tags: 'React • Secure Portal • CRM', tagsAr: 'رياكت • بوابة عملاء آمنة • نظام مالي', category: 'legal' as FilterKey, year: '2023', color: '#94a3b8', image: '/project_company.jpg' },
+  { id: 19, title: 'MedCenter Clinic', titleAr: 'مجمع عيادات MedCenter', desc: 'موقع عيادة طبية متكامل مع حجز مواعيد ذكي وملفات مرضى رقمية. ساعات الانتظار انخفضت 70% ورضا المرضى وصل 98%.', tags: 'React • HIPAA • Booking', tagsAr: 'رياكت • ملف طبي رقمي • حجز مواعيد', category: 'legal' as FilterKey, year: '2024', color: '#0ea5e9', image: '/project_company.jpg' },
+  { id: 20, title: 'Prestige Consulting', titleAr: 'Prestige للاستشارات الإدارية', desc: 'موقع شركة استشارات إدارية يبيع الخبرة والثقة. طلبات الاستشارة تضاعفت 5 مرات وارتفع متوسط قيمة العقد 60% بعد إعادة الهوية الرقمية.', tags: 'Next.js • GSAP • Analytics', tagsAr: 'نكست جيه إس • حركات ناعمة • تحليلات المبيعات', category: 'legal' as FilterKey, year: '2023', color: '#c084fc', image: '/project_company.jpg' },
 ];
 
 // ─── Testimonials (20 per row, 100+ total feel) ───────────────────────────────
 const TESTIMONIALS_ROW1 = [
-  { initials: 'AY', name: 'Ahmed Y.', role: 'Founder, Apex Labs', text: 'يا جماعة الناس بتوع SUVEX دول ودو الـ conversion rates بتاعتنا في حتة تانية خالص! الـ WebGL بتاعهم ملوش حل والمنافسين مش عارفين يقلدوه.' },
-  { initials: 'SK', name: 'Sarah K.', role: 'CMO, Nova Media Agency', text: 'شغل الميديا باينج والـ landing pages اللي عملوها جابولنا ROAS 180% في 3 شهور بس. شركة تقيلة بجد ووحوش في شغلهم عن أي حد تاني بقالي 15 سنة في السوق.' },
-  { initials: 'MT', name: 'Marcus T.', role: 'CTO, Stellar Corp', text: 'SUVEX عملوا لنا منصة تداول بتستحمل 100 ألف مستخدم في نفس الثانية وبـ latency 18ms بس! كود نضيف بجد ودماغ مصحصح مبني عشان يستحمل أي لود.' },
-  { initials: 'LR', name: 'Layla R.', role: 'CEO, Prism Ventures', text: 'كنا بادئين بموقع تعريفي بسيط وبقينا برودكت متكامل للمؤسسات في 10 أسابيع بس. الـ 3D configurator لوحده زود متوسط الطلبات بنسبة 340%. عتاولة بجد!' },
-  { initials: 'JC', name: 'James C.', role: 'VP Engineering, Nexus AI', text: 'معمارية الـ React بتاعتهم مدرسة في هندسة الأداء. الـ Core Web Vitals بتاعتنا بقت كلها 100/100 على كل الصفحات. نقلة نوعية وجبارة.' },
-  { initials: 'NA', name: 'Noor A.', role: 'Founder, Aurora Luxury', text: 'الموقع بتاعنا بقى لوحة فنية بجد! كل نقلة وحركة فيه معمولة بمزاج وبأعلى كواليتي. الزباين كل شوية يشكروا في الـ UX والمبيعات ضربت في 5.' },
-  { initials: 'DM', name: 'Derek M.', role: 'Director, Matrix Cloud', text: 'SUVEX نقلولنا السحابة بالكامل من غير أي ووقعان سيستم. ووفروا لنا 8 أضعاف التكلفة وبسرعة خيالية. العائد على الاستثمار كان لقطة تاريخية بجد.' },
-  { initials: 'FZ', name: 'Fatima Z.', role: 'Head of Product, Zenith', text: 'فهموا فكرتنا من أول يوم وقدموا لنا أكتر من اللي طلبناه بـ 20%. التفاصيل الدقيقة وحركات الـ micro-interactions مفيش شركة تانية هتعملها كدا.' },
-  { initials: 'RP', name: 'Ryan P.', role: 'CEO, Flux Capital', text: 'كنا محتاجين latency أقل من 20ms في 6 قارات. SUVEX عملوها بـ 14ms بس. خبرتهم في الـ WebSockets والـ states خلتنا في حتة تانية.' },
-  { initials: 'IS', name: 'Isabella S.', role: 'CMO, Eclipse Brand', text: 'الـ WebGL configurator بتاعنا اتشير بشكل غريب وجاب 2 مليون مشاهدة أورجانيك في أول أسبوع. ده الشغل الصح اللي بيفرق براند بجد عن الباقي.' },
+  { initials: 'AY', name: 'Ahmed Y.', nameAr: 'أحمد ي.', role: 'Founder, Apex Labs', roleAr: 'مؤسس إيبكس لابس', text: 'يا جماعة الناس بتوع SUVEX دول ودو الـ conversion rates بتاعتنا في حتة تانية خالص! الـ WebGL بتاعهم ملوش حل والمنافسين مش عارفين يقلدوه.' },
+  { initials: 'SK', name: 'Sarah K.', nameAr: 'سارة ك.', role: 'CMO, Nova Media Agency', roleAr: 'مديرة التسويق بوكالة نوفا ميديا', text: 'شغل الميديا باينج والـ landing pages اللي عملوها جابولنا ROAS 180% في 3 شهور بس. شركة تقيلة بجد ووحوش في شغلهم عن أي حد تاني بقالي 15 سنة في السوق.' },
+  { initials: 'MT', name: 'Marcus T.', nameAr: 'ماركوس ت.', role: 'CTO, Stellar Corp', roleAr: 'المدير التقني لشركة ستيلر', text: 'SUVEX عملوا لنا منصة تداول بتستحمل 100 ألف مستخدم في نفس الثانية وبـ latency 18ms بس! كود نضيف بجد ودماغ مصحصح مبني عشان يستحمل أي لود.' },
+  { initials: 'LR', name: 'Layla R.', nameAr: 'ليلى ر.', role: 'CEO, Prism Ventures', roleAr: 'رئيسة شركة بريزم الاستثمارية', text: 'كنا بادئين بموقع تعريفي بسيط وبقينا برودكت متكامل للمؤسسات في 10 أسابيع بس. الـ 3D configurator لوحده زود متوسط الطلبات بنسبة 340%. عتاولة بجد!' },
+  { initials: 'JC', name: 'James C.', nameAr: 'جيمس س.', role: 'VP Engineering, Nexus AI', roleAr: 'رئيس الهندسة بنكسس للذكاء الاصطناعي', text: 'معمارية الـ React بتاعتهم مدرسة في هندسة الأداء. الـ Core Web Vitals بتاعتنا بقت كلها 100/100 على كل الصفحات. نقلة نوعية وجبارة.' },
+  { initials: 'NA', name: 'Noor A.', nameAr: 'نور أ.', role: 'Founder, Aurora Luxury', roleAr: 'مؤسسة أورورا للمنتجات الفاخرة', text: 'الموقع بتاعنا بقى لوحة فنية بجد! كل نقلة وحركة فيه معمولة بمزاج وبأعلى كواليتي. الزباين كل شوية يشكروا في الـ UX والمبيعات ضربت في 5.' },
+  { initials: 'DM', name: 'Derek M.', nameAr: 'ديريك م.', role: 'Director, Matrix Cloud', roleAr: 'مدير ماتريكس للخدمات السحابية', text: 'SUVEX نقلولنا السحابة بالكامل من غير أي ووقعان سيستم. ووفروا لنا 8 أضعاف التكلفة وبسرعة خيالية. العائد على الاستثمار كان لقطة تاريخية بجد.' },
+  { initials: 'FZ', name: 'Fatima Z.', nameAr: 'فاطمة ز.', role: 'Head of Product, Zenith', roleAr: 'مديرة المنتج بشركة زينيث', text: 'فهموا فكرتنا من أول يوم وقدموا لنا أكتر من اللي طلبناه بـ 20%. التفاصيل الدقيقة وحركات الـ micro-interactions مفيش شركة تانية هتعملها كدا.' },
+  { initials: 'RP', name: 'Ryan P.', nameAr: 'رايان ب.', role: 'CEO, Flux Capital', roleAr: 'رئيس فلوكس كابيتال المالية', text: 'كنا محتاجين latency أقل من 20ms في 6 قارات. SUVEX عملوها بـ 14ms بس. خبرتهم في الـ WebSockets والـ states خلتنا في حتة تانية.' },
+  { initials: 'IS', name: 'Isabella S.', nameAr: 'إيزابيلا س.', role: 'CMO, Eclipse Brand', roleAr: 'مديرة التسويق لبراند إيكليبس', text: 'الـ WebGL configurator بتاعنا اتشير بشكل غريب وجاب 2 مليون مشاهدة أورجانيك في أول أسبوع. ده الشغل الصح اللي بيفرق براند بجد عن الباقي.' },
 ];
 
 const TESTIMONIALS_ROW2 = [
-  { initials: 'OK', name: 'Omar K.', role: 'CTO, Summit Realty', text: 'في 8 شهور بس المنصة مشت أكتر من 200 مليون دولار مبيعات عقارية. SUVEX مبنوش برنامج وخلاص، دول بنوا لنا ماكينة فلوس متكاملة.' },
-  { initials: 'CW', name: 'Chen W.', role: 'Founder, Helix Bio', text: 'إنك تعرض 10 مليون نقطة جينية بـ 60fps على المتصفح كان مستحيل بنظر الكل. SUVEX كسروا القاعدة دي وخلوها واقع. هندسة نخبوبة على أبوها بجد.' },
-  { initials: 'PM', name: 'Priya M.', role: 'VP Design, Orbit Labs', text: 'الدزاين سيستم اللي عملوه لينا خلى التيم بتاعنا يسلم الشاشات بضعف السرعة وبأعلى دقة. شغلهم غير طريقة شغلنا بالكامل وللأبد.' },
-  { initials: 'LB', name: 'Lucas B.', role: 'CEO, Phantom Security', text: 'الأمان والتصميم الفخم مبيمشوش مع بعض عادةً. بس SUVEX بنوا لنا منصة zero-trust هي الأأمن وفي نفس الوقت أشيك منصة شوفتها في حياتي.' },
-  { initials: 'AH', name: 'Amira H.', role: 'Founder, Pulse Health', text: 'إطلاق تطبيق صحي متوافق مع معايير HIPAA صعب جداً. SUVEX خلصوا لنا كل الرخص والتعقيدات وعملوا أبلكيشن المرضى بيحبوه بجد.' },
-  { initials: 'TG', name: 'Tom G.', role: 'Director, Core Bank', text: 'نقلنا السيستم البنكي كله من غير أي عطل أو توقف وبـ zero downtime. 2 مليون عميل محسوش بأي حاجة خالص. ده إنجاز هندسي خارق للعادة.' },
-  { initials: 'YT', name: 'Yuki T.', role: 'CTO, Stellar Gaming', text: '5 مليون تحميل وتقييم 4.9 ومن غير أي مشكلة سيرفر على مدار 14 شهر. شغل الـ real-time multiplayer بتاع SUVEX هو أحسن حاجة في السوق بجد.' },
-  { initials: 'SE', name: 'Sara E.', role: 'CMO, Vortex DeFi', text: 'مجسم الكرة الأرضية الـ 3D بقى بيظهر في كل مقالة صحفية بتكتب عننا. مش مجرد تصميم وخلاص، ده بقى أصل أساسي لبراندنا بيعرف هويتنا.' },
-  { initials: 'MR', name: 'Michael R.', role: 'CEO, Nova B2B', text: 'وصولنا لـ 50 مليون دولار مبيعات في أول سنة كان مستحيل لولا البنية التحتية اللي بنتها SUVEX واللي كانت متوقعة مشاكلنا قبل ما تحصل بـ 10 خطوات.' },
-  { initials: 'DF', name: 'Dina F.', role: 'Founder, Quantum Social', text: 'كنا عايزين أبلكيشن شات مشفر بس شكله ميبقاش كئيب وجاف. SUVEX عملوا لنا أرقى وأشيك تطبيق تواصل اجتماعي مستخدمينا شافوه بجد.' },
+  { initials: 'OK', name: 'Omar K.', nameAr: 'عمر ك.', role: 'CTO, Summit Realty', roleAr: 'المدير التقني لشركة ساميت العقارية', text: 'في 8 شهور بس المنصة مشت أكتر من 200 مليون دولار مبيعات عقارية. SUVEX مبنوش برنامج وخلاص، دول بنوا لنا ماكينة فلوس متكاملة.' },
+  { initials: 'CW', name: 'Chen W.', nameAr: 'تشين و.', role: 'Founder, Helix Bio', roleAr: 'مؤسس هيلكس للمعلومات الطبية', text: 'إنك تعرض 10 مليون نقطة جينية بـ 60fps على المتصفح كان مستحيل بنظر الكل. SUVEX كسروا القاعدة دي وخلوها واقع. هندسة نخبوبة على أبوها بجد.' },
+  { initials: 'PM', name: 'Priya M.', nameAr: 'بريا م.', role: 'VP Design, Orbit Labs', roleAr: 'مديرة التصميم بأوربت لابس', text: 'الدزاين سيستم اللي عملوه لينا خلى التيم بتاعنا يسلم الشاشات بضعف السرعة وبأعلى دقة. شغلهم غير طريقة شغلنا بالكامل وللأبد.' },
+  { initials: 'LB', name: 'Lucas B.', nameAr: 'لوكاس ب.', role: 'CEO, Phantom Security', roleAr: 'رئيس فانتوم للحلول الأمنية', text: 'الأمان والتصميم الفخم مبيمشوش مع بعض عادةً. بس SUVEX بنوا لنا منصة zero-trust هي الأأمن وفي نفس الوقت أشيك منصة شوفتها في حياتي.' },
+  { initials: 'AH', name: 'Amira H.', nameAr: 'أميرة هـ.', role: 'Founder, Pulse Health', roleAr: 'مؤسسة منصة بولس الصحية', text: 'إطلاق تطبيق صحي متوافق مع معايير HIPAA صعب جداً. SUVEX خلصوا لنا كل الرخص والتعقيدات وعملوا أبلكيشن المرضى بيحبوه بجد.' },
+  { initials: 'TG', name: 'Tom G.', nameAr: 'توم ج.', role: 'Director, Core Bank', roleAr: 'مدير البنك المركزي الرقمي', text: 'نقلنا السيستم البنكي كله من غير أي عطل أو توقف وبـ zero downtime. 2 مليون عميل محسوش بأي حاجة خالص. ده إنجاز هندسي خارق للعادة.' },
+  { initials: 'YT', name: 'Yuki T.', nameAr: 'يوكي ت.', role: 'CTO, Stellar Gaming', roleAr: 'المدير التقني لستيلر للألعاب', text: '5 مليون تحميل وتقييم 4.9 ومن غير أي مشكلة سيرفر على مدار 14 شهر. شغل الـ real-time multiplayer بتاع SUVEX هو أحسن حاجة في السوق بجد.' },
+  { initials: 'SE', name: 'Sara E.', nameAr: 'سارة ع.', role: 'CMO, Vortex DeFi', roleAr: 'مديرة التسويق لـ فورتكس المالية', text: 'مجسم الكرة الأرضية الـ 3D بقى بيظهر في كل مقالة صحفية بتكتب عننا. مش مجرد تصميم وخلاص، ده بقى أصل أساسي لبراندنا بيعرف هويتنا.' },
+  { initials: 'MR', name: 'Michael R.', nameAr: 'مايكل ر.', role: 'CEO, Nova B2B', roleAr: 'رئيس منصة نوفا للتجارة', text: 'وصولنا لـ 50 مليون دولار مبيعات في أول سنة كان مستحيل لولا البنية التحتية اللي بنتها SUVEX واللي كانت متوقعة مشاكلنا قبل ما تحصل بـ 10 خطوات.' },
+  { initials: 'DF', name: 'Dina F.', nameAr: 'دينا ف.', role: 'Founder, Quantum Social', roleAr: 'مؤسسة كوانتم للتواصل الاجتماعي', text: 'كنا عايزين أبلكيشن شات مشفر بس شكله ميبقاش كئيب وجاف. SUVEX عملوا لنا أرقى وأشيك تطبيق تواصل اجتماعي مستخدمينا شافوه بجد.' },
 ];
 
 // ─── Partners & Awards ────────────────────────────────────────────────────────
 const PARTNERS = ['Microsoft', 'Google Cloud', 'Amazon AWS', 'Vercel', 'Stripe', 'Cloudflare', 'Figma', 'GitHub', 'Notion', 'Linear', 'Anthropic', 'OpenAI'];
 
 const AWARDS = [
-  { title: 'Awwwards SOTD', year: '2024', desc: 'Site of the Day Award', color: '#f59e0b' },
-  { title: 'CSS Design Awards', year: '2024', desc: 'UI Innovation Award', color: '#155dfc' },
-  { title: 'Webby Award', year: '2023', desc: 'Best Technical Achievement', color: '#8b5cf6' },
-  { title: 'FWA of the Year', year: '2023', desc: 'Favourite Website Award', color: '#10b981' },
-  { title: 'Red Dot Design', year: '2024', desc: 'Communication Design Award', color: '#ef4444' },
-  { title: 'G2 Leader Badge', year: '2024', desc: 'Top Web Development Agency', color: '#06b6d4' },
+  { title: 'Awwwards SOTD', titleAr: 'جائزة موقع اليوم (Awwwards)', year: '2024', desc: 'Site of the Day Award', descAr: 'جائزة أفضل تصميم وتجربة مستخدم للمواقع اليومية', color: '#f59e0b' },
+  { title: 'CSS Design Awards', titleAr: 'جائزة CSS Design Awards', year: '2024', desc: 'UI Innovation Award', descAr: 'جائزة الابتكار والتميز في تصميم واجهات المستخدم', color: '#155dfc' },
+  { title: 'Webby Award', titleAr: 'جائزة ويبي العالمية', year: '2023', desc: 'Best Technical Achievement', descAr: 'جائزة ويبي لأفضل إنجاز تقني وتطوير برمجيات', color: '#8b5cf6' },
+  { title: 'FWA of the Year', titleAr: 'جائزة FWA للموقع المفضل', year: '2023', desc: 'Favourite Website Award', descAr: 'جائزة الموقع الأكثر تفضيلاً وإبداعاً من الجماهير', color: '#10b981' },
+  { title: 'Red Dot Design', titleAr: 'جائزة ريد دوت العالمية', year: '2024', desc: 'Communication Design Award', descAr: 'جائزة التميز والجودة العالية في التصميم البصري والتواصل', color: '#ef4444' },
+  { title: 'G2 Leader Badge', titleAr: 'صدارة شركات البرمجيات من G2', year: '2024', desc: 'Top Web Development Agency', descAr: 'تصنيف الوكالة الرقمية الرائدة والأولى في تطوير المواقع', color: '#06b6d4' },
 ];
 
 // ─── Translations ─────────────────────────────────────────────────────────────
@@ -226,103 +226,103 @@ const T = {
     navSections: ['الرئيسية', 'الإنجازات', 'الخدمات', 'الفريق', 'التقنية', 'الأعمال', 'الجوائز', 'الآراء', 'تواصل'],
     getInTouch: 'ابدأ مشروعك',
     hero: {
-      badge: 'منذ 2019  ·  +200 مشروع  ·  +50 دولة',
+      badge: 'منذ 2019  ·  +200 مشروع ناجح  ·  +50 دولة',
       h1a: 'نحن نبني',
       h1b: 'إمبراطوريات رقمية.',
-      p: 'SUVEX هي وكالة الهندسة الرقمية الأكثر تطوراً في العالم. نصنع تجارب WebGL ومنصات SaaS للمؤسسات وأنظمة ويب فائقة الأداء تُعيد تعريف ما هو ممكن على الإنترنت.',
+      p: 'سوفيكس (SUVEX) هي شريكك المثالي لتكبير مشروعك على الإنترنت. بنصمملكم ونبنيلكم مواقع سريعة جداً، وتطبيقات موبايل تبيع وتجيب زباين، وأنظمة ذكية تريحكم وتكبر مبيعاتكم في مصر والوطن العربي.',
       cta1: 'استعرض أعمالنا',
       cta2: 'ابدأ مشروعك',
       scroll: 'مرر للاستكشاف',
-      chips: ['+$1.2B إيرادات محققة', '+200 مشروع نخبوي', '+50 دولة مخدومة'],
+      chips: ['+50 مليون مبيعات لعملائنا', '+200 مشروع ناجح ومميز', 'دعم فني متواصل 24/7'],
     },
     stats: {
-      tag: 'التأثير العالمي',
-      h2: 'أرقام تُعرّف التميز',
-      p: 'كل رقم هو نتيجة حقيقية حققناها لعملاء حقيقيين في كل قطاع.',
+      tag: 'التأثير الحقيقي',
+      h2: 'أرقام تُعرّف التميز والنجاح',
+      p: 'كل رقم هنا هو نتيجة حقيقية وأرباح فعلية حققناها لعملائنا في مختلف المجالات.',
       items: [
-        { value: '+$1.2m', label: 'إيرادات العملاء', sub: 'محققة عبر منصاتنا' },
-        { value: '+200', label: 'مشروع نخبوي', sub: 'منجز في +50 دولة' },
-        { value: '98%', label: 'معدل الاحتفاظ', sub: 'العملاء يعودون سنة بعد سنة' },
-        { value: '40ms', label: 'زمن استجابة عالمي', sub: 'بنية تحتية edge-first' },
-        { value: '60fps', label: 'أداء بصري', sub: 'حتى على الأجهزة المتوسطة' },
-        { value: '5.0★', label: 'تقييم العملاء', sub: 'عبر +200 تقييم موثق' },
+        { value: '+50 مليون', label: 'مبيعات لعملائنا', sub: 'إيرادات حقيقية حققها عملاؤنا بمصر والوطن العربي' },
+        { value: '+200', label: 'موقع وتطبيق ناجح', sub: 'تم إنجازها وتصميمها بأعلى جودة ممكنة' },
+        { value: '98%', label: 'معدل رضا العملاء', sub: 'شركاؤنا يفضلون الاستمرار معنا دائماً لتطوير مشاريعهم' },
+        { value: '100%', label: 'سرعة فائقة وأمان', sub: 'موقعك بيفتح في لمح البصر وبأعلى حماية وتشفير للبيانات' },
+        { value: '24/7', label: 'دعم فني متواصل', sub: 'موجودين معاك طول اليوم لحل أي مشكلة وتحديث موقعك فوراً' },
+        { value: '5.0★', label: 'تقييم العملاء', sub: 'عبر مئات التقييمات الإيجابية الموثقة من أصحاب الأعمال' },
       ],
     },
     services: {
-      tag: 'ماذا نبني',
-      h2: 'تميز رقمي شامل من الألف إلى الياء',
-      p: 'من تجارب WebGL الغامرة إلى البنية السحابية للمؤسسات، نهندس منتجات رقمية تقود الأسواق.',
+      tag: 'إيه اللي بنقدمه لمشروعك؟',
+      h2: 'خدمات رقمية متكاملة تكبّر مبيعاتك',
+      p: 'من تصميم المواقع التفاعلية المبهرة لتطبيقات الموبايل والأنظمة الذكية، بنهندس منتجات تضمنلك الصدارة في سوقك.',
       items: [
-        { title: 'WebGL وتجارب ثلاثية الأبعاد', desc: 'واجهات ثلاثية الأبعاد مدعومة بالـ GPU تعمل بـ 60fps على أي جهاز.' },
-        { title: 'منصات SaaS للمؤسسات', desc: 'منصات قابلة للتوسع وآمنة تنمو بسلاسة من MVP إلى ملايين المستخدمين.' },
-        { title: 'تطبيقات الجوال', desc: 'تطبيقات متعددة المنصات بأداء نيتف لا تُفرّق بينها وبين التطبيقات الأصلية.' },
-        { title: 'البيانات والتحليلات', desc: 'لوحات تحكم فورية وخطوط ML تعالج مليارات الأحداث بأقل من ثانية.' },
-        { title: 'البنية السحابية', desc: 'بنية متعددة المناطق مصممة لأوقات استجابة عالمية أقل من 50ms.' },
-        { title: 'التسويق الرقمي', desc: 'شراء الإعلانات البرمجية وتحسين معدل التحويل بعائد استثماري قابل للقياس.' },
+        { title: 'تصاميم ثلاثية الأبعاد تفاعلية', desc: 'مواقع 3D تفاعلية ومبتكرة تجذب انتباه الزبون وتخليه يبهر بمشروعك ويتفاعل مع منتجاتك.' },
+        { title: 'أنظمة وبرامج سحابية للشركات', desc: 'برامج وأنظمة إدارية متكاملة لشركتك تسهل عليك الشغل، تنظم المبيعات، وتوفر وقتك وفلوسك.' },
+        { title: 'تطبيقات الموبايل (أندرويد وآيفون)', desc: 'تطبيقات موبايل سريعة، جذابة وسهلة الاستخدام لكل زباينك وبأفضل أداء ممكن.' },
+        { title: 'لوحات تحكم وتحليلات ذكية', desc: 'لوحات تحكم سهلة لمتابعة مبيعاتك وأرباحك وتقارير مبسطة تفهم منها مشروعك رايح فين.' },
+        { title: 'استضافة وسيرفرات فائقة السرعة', desc: 'سيرفرات قوية تضمن إن موقعك يفتح في أقل من ثانية وميقعش نهائياً تحت أي ضغط أو عدد زوار.' },
+        { title: 'حملات إعلانية وتسويق ذكي', desc: 'إدارة وتصميم حملات إعلانية لزيادة مبيعاتك وتجيبلك زباين حقيقية مهتمة بجد بأقل تكلفة.' },
       ],
     },
     team: {
-      tag: 'فريق SUVEX',
-      h2: 'نخبة المقاتلين الرقميين.',
-      p: 'فريقنا المؤلف من +50 عضواً يضم مهندسين سابقين من FAANG، ومصممي شيدرز WebGL، ومتخصصي تسويق عالميين. لا نبني قوالب — نبني أصولاً تحقق ROI على مستوى المؤسسات الكبرى.',
+      tag: 'فريق العمل والخبرات',
+      h2: 'نخبة من خبراء البرمجة والتصميم.',
+      p: 'فريقنا يضم مهندسين ومصممين بخبرات عالمية سابقة في أكبر الشركات التكنولوجية. لا نبني قوالب جاهزة وتقليدية — بل نصمم ونصنع أصولاً رقمية مخصصة تحقق لك أعلى عائد على الاستثمار ومبيعات حقيقية لمشروعك.',
       stat1: 'مهندس نخبة',
       stat2: 'تحفة رقمية منجزة',
       stat3: 'سنة خبرة متوسطة',
       stat4: 'صناعة مخدومة',
       badge: 'فريق معتمد',
-      secure: 'مشفّر وآمن',
+      secure: 'مشفّر وآمن بالكامل',
       members: [
-        { name: 'زياد أ.', role: 'المؤسس والمدير التقني', exp: '14 سنة', prev: 'Ex-Google' },
-        { name: 'لارا م.', role: 'مهندسة WebGL الرئيسية', exp: '9 سنوات', prev: 'Ex-Unity' },
-        { name: 'طارق س.', role: 'رئيس التصميم', exp: '11 سنة', prev: 'Ex-Apple' },
-        { name: 'نادية ر.', role: 'نائبة رئيس النمو والإعلام', exp: '8 سنوات', prev: 'Ex-Meta' },
+        { name: 'زياد أ.', role: 'المؤسس ورئيس التكنولوجيا', exp: '14 سنة خبرة', prev: 'جوجل سابقاً' },
+        { name: 'لارا م.', role: 'مهندسة التصميم ثلاثي الأبعاد الرئيسية', exp: '9 سنوات خبرة', prev: 'يونيتي سابقاً' },
+        { name: 'طارق س.', role: 'رئيس قسم التصميم وتجربة المستخدم', exp: '11 سنة خبرة', prev: 'آبل سابقاً' },
+        { name: 'نادية ر.', role: 'نائبة رئيس قسم التسويق والنمو', exp: '8 سنوات خبرة', prev: 'ميتا سابقاً' },
       ],
     },
     tech: {
-      tag: 'ترسانة التقنية',
-      h2: 'أقصى سرعة. أعلى دقة.',
-      p: 'مكدسنا التقني مبني للمستقبل. كل أداة مختارة للأداء وقابلية التوسع وتجربة المطور.',
+      tag: 'ترسانة التقنيات الحديثة',
+      h2: 'أقصى سرعة ممكنة. تصميم بلا حدود.',
+      p: 'بنستخدم أحدث وأقوى تقنيات البرمجة عشان نضمن لموقعك الأداء الأسرع، الحماية الأقوى، والظهور الأول في محركات البحث.',
       items: [
-        { name: 'WebGL و Three.js', desc: 'واجهات ثلاثية الأبعاد مدعومة GPU بمعدلات إطار نيتف على أي جهاز عالمياً.' },
-        { name: 'GSAP و Motion', desc: 'رسوم متحركة متقدمة وتفاعلات دقيقة مدفوعة بالإيماءات والتمرير السحري.' },
-        { name: 'React 19 و Next.js', desc: 'SSR فوري وهيدريشن RSC وعلامات Lighthouse 100/100 مثالية.' },
-        { name: 'Node و Edge API', desc: 'نقاط نهاية موزعة عالمياً بأوقات استجابة أقل من 40ms وتوسع لا محدود.' },
-        { name: 'Rust و Go', desc: 'خدمات خلفية عالية الإنتاجية تتعامل مع ملايين الطلبات في الثانية بثبات.' },
-        { name: 'الذكاء الاصطناعي والـ ML', desc: 'ميزات مدعومة بـ LLM ومحركات توصيات وتحليلات تنبؤية متقدمة.' },
+        { name: 'تصاميم ثلاثية الأبعاد (WebGL)', desc: 'واجهات ثلاثية الأبعاد تفاعلية تبهر العميل وتخليه يتفاعل مع منتجك كأنه حقيقي وملموس.' },
+        { name: 'حركات وانتقالات ناعمة (GSAP)', desc: 'حركات مميزة وسلسة تخلي تصفح موقعك متعة وتجربة مريحة وممتعة للعين بتشد الزوار.' },
+        { name: 'أحدث تقنيات الويب (React & Next)', desc: 'موقعك بيفتح في جزء من الثانية، وتوافقه الكامل مع جوجل (SEO) عشان تتصدر نتايج البحث.' },
+        { name: 'سيرفرات سحابية قوية (Cloud Edge)', desc: 'بنية سيرفرات ممتازة وموزعة تضمن فتح الموقع فوراً وبسرعة البرق من أي مكان وفي أي وقت.' },
+        { name: 'قواعد بيانات فائقة السرعة', desc: 'أنظمة خلفية متطورة لتسجيل وتنفيذ الطلبات والعمليات والمدفوعات في أجزاء من الثانية.' },
+        { name: 'الذكاء الاصطناعي (AI Integration)', desc: 'ربط الذكاء الاصطناعي بموقعك لتوقع طلبات الزباين، والتحليل الذكي، والرد التلقائي المساعد.' },
       ],
     },
     portfolio: {
       tag: 'محفظة الأعمال الرقمية',
-      h2: '20 موقع حقيقي. نتائج حقيقية.',
-      filters: ['الكل', 'مطاعم', 'كافيهات', 'تعليم', 'شركات', 'قانوني وطبي'],
+      h2: '20 موقع حقيقي. نتائج وأرباح فعلية.',
+      filters: ['الكل', 'مطاعم', 'كافيهات', 'تعليم ومدرسين', 'شركات ومؤسسات', 'مكاتب مهنية وطبية'],
       filterKeys: ['all', 'restaurant', 'cafe', 'education', 'corporate', 'legal'] as FilterKey[],
     },
     recognition: {
-      tag: 'شهادات التميز',
-      h2: 'معترف بنا عالمياً. موثوق من العملاء.',
-      p: 'حائزون على جوائز من أبرز هيئات التصميم والهندسة الرقمية على مستوى العالم.',
-      partnersLabel: 'موثوق من قادة الصناعة العالميين',
+      tag: 'شهادات وجوائز التميز',
+      h2: 'معترف بنا عالمياً. موثوق من مئات الشركات.',
+      p: 'حائزون على جوائز وشهادات تقدير من كبرى هيئات التصميم والهندسة الرقمية حول العالم.',
+      partnersLabel: 'موثوق من قادة الصناعة العالميين والمحليين',
     },
     testimonials: {
-      tag: 'أصوات الثقة',
-      h2: '+100 عميل. معيار واحد: التميز.',
-      p: 'نتائج حقيقية من عملاء حقيقيين في كل قطاع.',
+      tag: 'آراء عملائنا وشركاء النجاح',
+      h2: 'مئات العملاء. معيار واحد: التميز المطلق.',
+      p: 'نجاح عملائنا هو نجاحنا الأساسي. إليك بعض من آراء شركاء النجاح الذين وضعوا ثقتهم بنا.',
     },
     contact: {
-      tag: 'ابدأ إطلاق مشروعك',
-      h2: 'هل أنت مستعد لبناء شيء تاريخي؟',
-      p: 'تواصل مع مهندسينا وابدأ في تصميم منصتك الرقمية الاحترافية اليوم.',
-      label1: 'اسمك الكامل',
-      label2: 'بريدك الإلكتروني',
-      label3: 'نظرة عامة على المشروع',
-      ph1: 'أدخل اسمك الكامل',
-      ph2: 'أدخل بريدك الإلكتروني',
-      ph3: 'صف رؤيتك بالتفصيل...',
-      btn: 'أرسل ملخص المشروع',
+      tag: 'ابدأ إطلاق مشروعك الآن',
+      h2: 'جاهز تبني قصة نجاح مشروعك الجاي؟',
+      p: 'تواصل مباشرة معنا على الواتساب، وهنتناقش في فكرتك ونبدأ تصميم وبرمجة موقعك بأعلى دقة واحترافية.',
+      label1: 'الاسم بالكامل',
+      label2: 'البريد الإلكتروني',
+      label3: 'تفاصيل ورؤية مشروعك',
+      ph1: 'اكتب اسمك بالكامل هنا...',
+      ph2: 'اكتب بريدك الإلكتروني هنا...',
+      ph3: 'اكتب رؤيتك وتفاصيل مشروعك اللي عايز تحققه بالظبط...',
+      btn: 'أرسل تفاصيل المشروع عبر واتساب',
       infoItems: [
         { icon: 'mail', label: 'البريد الإلكتروني', value: 'hello@suvex.io' },
-        { icon: 'clock', label: 'وقت الرد', value: 'خلال ساعتين' },
-        { icon: 'globe', label: 'التوفر', value: 'عالمي · 24/7' },
+        { icon: 'clock', label: 'سرعة الاستجابة', value: 'خلال ساعتين فقط' },
+        { icon: 'globe', label: 'أماكن التغطية', value: 'مصر والشرق الأوسط والعالم' },
       ],
     },
   },
@@ -332,7 +332,7 @@ const T = {
 export default function App() {
   const [currentSection, setCurrentSection] = useState<number>(0);
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
-  const [lang, setLang] = useState<Lang>('en');
+  const [lang, setLang] = useState<Lang>('ar');
   const [activeFilter, setActiveFilter] = useState<FilterKey>('all');
   const isAnimating = useRef<boolean>(false);
   const touchStartY = useRef<number>(0);
@@ -822,37 +822,38 @@ export default function App() {
                 className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 pb-4">
                 {filteredProjects.map((item, i) => (
                   <motion.div key={item.id} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: i * 0.04 }}
-                    className={`group relative rounded-xl border border-white/8 bg-[#030b20]/80 backdrop-blur-md p-4 hover:border-white/20 transition-all duration-300 cursor-default overflow-hidden min-h-[170px] flex flex-col justify-between ${lang === 'ar' ? 'text-right' : ''}`}>
-                    {/* Background Image */}
-                    <div className="absolute inset-0 z-0 overflow-hidden">
+                    className={`group relative rounded-xl border border-white/8 bg-[#030b20]/80 backdrop-blur-md hover:border-white/20 transition-all duration-300 cursor-default overflow-hidden flex flex-col justify-between ${lang === 'ar' ? 'text-right' : ''}`}>
+                    {/* Website Mockup Image Preview (Edge-to-Edge) */}
+                    <div className="relative w-full h-[110px] sm:h-[125px] overflow-hidden bg-slate-950 flex-shrink-0">
                       <img
                         src={item.image}
                         alt={item.title}
                         loading="lazy"
                         decoding="async"
-                        className="w-full h-full object-cover opacity-20 group-hover:opacity-45 group-hover:scale-105 transition-all duration-500"
+                        className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#000511] via-[#000511]/70 to-[#000511]/30" />
+                      <div className="absolute top-0 left-0 right-0 h-[2px] z-10" style={{ background: `linear-gradient(to right, transparent, ${item.color}, transparent)` }} />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#030b20] via-[#030b20]/40 to-transparent opacity-80" />
                     </div>
 
-                    {/* Color accent */}
-                    <div className="absolute top-0 left-0 right-0 h-[2px] z-10" style={{ background: `linear-gradient(to right, transparent, ${item.color}, transparent)` }} />
-                    <div className="absolute top-0 left-0 right-0 h-10 opacity-20 z-10" style={{ background: `radial-gradient(ellipse at top, ${item.color}, transparent)` }} />
-
                     {/* Content */}
-                    <div className="relative z-10 flex flex-col h-full justify-between w-full">
-                      <div className={`flex items-start justify-between mb-2 w-full ${lang === 'ar' ? 'flex-row-reverse' : ''}`}>
-                        <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: `${item.color}20`, border: `1px solid ${item.color}40` }}>
-                          <Cpu className="w-4 h-4" style={{ color: item.color }} />
+                    <div className="p-3.5 flex flex-col flex-grow justify-between relative z-10">
+                      <div>
+                        <div className={`flex items-start justify-between mb-2 w-full gap-2 ${lang === 'ar' ? 'flex-row-reverse' : ''}`}>
+                          <h3 className="text-white font-bold text-xs sm:text-sm leading-tight group-hover:text-blue-300 transition-colors duration-300">
+                            {lang === 'ar' ? item.titleAr : item.title}
+                          </h3>
+                          <span className="text-[9px] font-mono text-gray-400 bg-black/40 border border-white/10 px-1.5 py-0.5 rounded flex-shrink-0">{item.year}</span>
                         </div>
-                        <span className="text-[10px] font-mono text-gray-400 bg-black/40 border border-white/10 px-2 py-0.5 rounded">{item.year}</span>
+                        <p className="text-gray-300 text-[10.5px] leading-relaxed mb-3 line-clamp-3 group-hover:line-clamp-none transition-all duration-300">{item.desc}</p>
                       </div>
 
-                      <div>
-                        <h3 className="text-white font-bold text-sm mb-1 leading-tight group-hover:text-blue-300 transition-colors duration-300">{item.title}</h3>
-                        <p className="text-gray-300 text-[11px] leading-relaxed mb-2 line-clamp-2 group-hover:line-clamp-none transition-all duration-300">{item.desc}</p>
-                        <div className="text-[10px] font-mono opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ color: item.color }}>
-                          {item.tags}
+                      <div className={`flex items-center justify-between mt-auto pt-2 border-t border-white/5 w-full gap-1.5 ${lang === 'ar' ? 'flex-row-reverse' : ''}`}>
+                        <span className="text-[9px] font-mono font-semibold truncate" style={{ color: item.color }}>
+                          {lang === 'ar' ? item.tagsAr : item.tags}
+                        </span>
+                        <div className="w-6 h-6 rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: `${item.color}20`, border: `1px solid ${item.color}40` }}>
+                          <Cpu className="w-3.5 h-3.5" style={{ color: item.color }} />
                         </div>
                       </div>
                     </div>
@@ -884,8 +885,8 @@ export default function App() {
                   <div className="w-10 h-10 rounded-xl mb-4 flex items-center justify-center" style={{ background: `${award.color}15`, border: `1px solid ${award.color}40` }}>
                     <Trophy className="w-5 h-5" style={{ color: award.color }} />
                   </div>
-                  <h3 className="text-white font-bold text-sm mb-0.5">{award.title}</h3>
-                  <p className="text-gray-400 text-xs mb-1">{award.desc}</p>
+                  <h3 className="text-white font-bold text-sm mb-0.5">{lang === 'ar' ? award.titleAr : award.title}</h3>
+                  <p className="text-gray-400 text-xs mb-1">{lang === 'ar' ? award.descAr : award.desc}</p>
                   <span className="text-[10px] font-mono" style={{ color: award.color }}>{award.year}</span>
                 </div>
               ))}
@@ -934,8 +935,8 @@ export default function App() {
                   <div className="flex items-center gap-3">
                     <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#155dfc] to-blue-400 flex items-center justify-center text-white text-[11px] font-bold flex-shrink-0">{item.initials}</div>
                     <div>
-                      <p className="text-white text-xs font-bold">{item.name}</p>
-                      <p className="text-gray-500 text-[10px]">{item.role}</p>
+                      <p className="text-white text-xs font-bold">{lang === 'ar' ? item.nameAr : item.name}</p>
+                      <p className="text-gray-500 text-[10px]">{lang === 'ar' ? item.roleAr : item.role}</p>
                     </div>
                   </div>
                 </div>
@@ -955,8 +956,8 @@ export default function App() {
                   <div className="flex items-center gap-3">
                     <div className="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center text-white text-[11px] font-bold flex-shrink-0">{item.initials}</div>
                     <div>
-                      <p className="text-white text-xs font-bold">{item.name}</p>
-                      <p className="text-gray-500 text-[10px]">{item.role}</p>
+                      <p className="text-white text-xs font-bold">{lang === 'ar' ? item.nameAr : item.name}</p>
+                      <p className="text-gray-500 text-[10px]">{lang === 'ar' ? item.roleAr : item.role}</p>
                     </div>
                   </div>
                 </div>
