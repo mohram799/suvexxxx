@@ -625,116 +625,134 @@ export default function App() {
           </div>
         </section>
 
-        {/* ━━━━ SECTION 3 · TEAM / CEO ━━━━ */}
-        <section className="h-screen w-full flex items-center px-6 md:px-10 lg:px-16 relative overflow-hidden">
-          <div className={`max-w-7xl w-full mx-auto flex flex-col lg:flex-row items-center gap-10 pt-16 ${lang === 'ar' ? 'lg:flex-row-reverse' : ''}`}>
+        {/* ━━━━ SECTION 3 · CEO SPOTLIGHT ━━━━ */}
+        <section className="h-screen w-full flex items-center px-6 md:px-12 lg:px-20 relative overflow-hidden">
 
-            {/* ── CEO Portrait Card ── */}
+          {/* Ambient glow background */}
+          <div className="absolute top-1/4 left-1/3 w-[500px] h-[500px] bg-[#155dfc]/5 rounded-full blur-[120px] pointer-events-none" />
+
+          <div className={`max-w-7xl w-full mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-20 pt-16 ${lang === 'ar' ? 'lg:flex-row-reverse' : ''}`}>
+
+            {/* ── LEFT: Portrait ── */}
             <motion.div
-              initial={{ opacity: 0, x: lang === 'ar' ? 60 : -60 }}
+              initial={{ opacity: 0, x: lang === 'ar' ? 80 : -80 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: false }}
-              transition={{ duration: 0.9 }}
+              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
               className="flex-shrink-0 relative"
             >
-              {/* Glow rings */}
-              <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-[#155dfc]/30 to-blue-400/10 blur-2xl scale-110 pointer-events-none" />
-              <div className="absolute -inset-[2px] rounded-3xl bg-gradient-to-br from-[#155dfc] via-blue-400/50 to-transparent opacity-60 pointer-events-none" />
+              {/* Outer glow aura */}
+              <div className="absolute -inset-6 rounded-[2.5rem] bg-gradient-to-b from-[#155dfc]/20 to-transparent blur-2xl pointer-events-none" />
 
-              {/* Portrait */}
-              <div className="relative w-[220px] md:w-[260px] lg:w-[300px] rounded-3xl overflow-hidden border border-blue-500/30 shadow-[0_0_60px_rgba(21,93,252,0.35)]">
+              {/* Border gradient ring */}
+              <div className="absolute -inset-[1.5px] rounded-[2rem] bg-gradient-to-br from-[#155dfc]/80 via-blue-400/20 to-transparent pointer-events-none" />
+
+              {/* Portrait — NO text on top of image */}
+              <div className="relative w-[260px] md:w-[300px] lg:w-[340px] rounded-[2rem] overflow-hidden shadow-[0_30px_80px_rgba(21,93,252,0.3)]">
                 <img
                   src="/ceo.jpg"
-                  alt="Ziad Ayman – CEO & Founder of SUVEX"
+                  alt="SUVEX CEO"
                   loading="lazy"
                   decoding="async"
-                  className="w-full h-[300px] md:h-[350px] lg:h-[400px] object-cover object-top"
+                  className="w-full h-[360px] md:h-[420px] lg:h-[480px] object-cover object-top"
                 />
-                {/* Bottom gradient overlay */}
-                <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#000511] via-[#000511]/60 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-4">
-                  <p className="text-white font-bold text-sm">Ziad Ayman</p>
-                  <p className="text-[#3b82f6] text-[11px] font-semibold font-mono uppercase tracking-wider">Founder & CEO · SUVEX</p>
-                </div>
+                {/* Subtle bottom fade — NO text */}
+                <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#000511]/60 to-transparent" />
               </div>
 
-              {/* Floating badge */}
+              {/* Floating #1 badge */}
               <motion.div
-                animate={{ y: [0, -6, 0] }}
-                transition={{ repeat: Infinity, duration: 3, ease: 'easeInOut' }}
-                className="absolute -top-3 -right-3 bg-[#155dfc] text-white text-[10px] font-bold font-mono px-3 py-1.5 rounded-xl shadow-[0_0_20px_rgba(21,93,252,0.7)] border border-blue-400/40"
+                animate={{ y: [0, -8, 0] }}
+                transition={{ repeat: Infinity, duration: 3.5, ease: 'easeInOut' }}
+                className="absolute -top-4 -right-4 flex flex-col items-center justify-center w-16 h-16 rounded-full bg-[#155dfc] shadow-[0_0_30px_rgba(21,93,252,0.8)] border-2 border-blue-300/30"
               >
-                #1 VISIONARY
+                <span className="text-white font-black text-[10px] font-mono leading-tight text-center">#1<br/>CEO</span>
               </motion.div>
+
+              {/* Name + title BELOW image */}
+              <div className={`mt-4 ${lang === 'ar' ? 'text-right' : 'text-left'}`}>
+                <p className="text-white font-bold text-lg tracking-tight">Ziad Ayman</p>
+                <p className="text-[#3b82f6] text-[11px] font-mono font-semibold uppercase tracking-[0.2em]">Founder & CEO · SUVEX</p>
+              </div>
             </motion.div>
 
-            {/* ── CEO Info ── */}
+            {/* ── RIGHT: CEO Info ── */}
             <div className={`flex-1 flex flex-col ${lang === 'ar' ? 'items-end text-right' : 'items-start'}`}>
               <motion.div
-                initial={{ opacity: 0, y: 40 }}
+                initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false }}
-                transition={{ duration: 0.8, delay: 0.1 }}
+                transition={{ duration: 0.9, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
                 className="w-full"
               >
-                <div className={`flex items-center gap-2 mb-3 text-[#155dfc] ${lang === 'ar' ? 'flex-row-reverse' : ''}`}>
+                {/* Tag */}
+                <div className={`flex items-center gap-2 mb-4 text-[#155dfc] ${lang === 'ar' ? 'flex-row-reverse' : ''}`}>
                   <Users className="w-4 h-4" />
-                  <span className="uppercase tracking-[0.25em] text-xs font-bold font-mono">{t.team.tag}</span>
+                  <span className="uppercase tracking-[0.3em] text-[11px] font-bold font-mono">{t.team.tag}</span>
                 </div>
 
-                <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold leading-[1.1] tracking-tight mb-3">
-                  {lang === 'ar' ? 'رؤية تُبنى بأيدٍ تُتقن الصنعة.' : 'Vision. Craft.\nDomination.'}
+                {/* Headline */}
+                <h2 className="font-display text-4xl sm:text-5xl lg:text-[3.6rem] font-black leading-[1.05] tracking-tight mb-5">
+                  {lang === 'ar'
+                    ? <>'رؤية تُبنى على<br /><span className="text-[#155dfc]">المستحيل.</span>'</>
+                    : <span>Built on <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#155dfc] to-blue-300">Vision.</span><br />Driven by Domination.</span>
+                  }
                 </h2>
 
-                {/* CEO Quote */}
-                <div className="relative mb-5 mt-4">
-                  <div className="absolute left-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-[#155dfc] to-blue-400/20 rounded-full" />
-                  <blockquote className={`pl-5 text-gray-300 text-sm leading-[1.75] italic font-light ${lang === 'ar' ? 'pr-5 pl-0 border-r-[3px] border-l-0' : ''}`}>
+                {/* Power Quote */}
+                <div className={`relative mb-6 pl-5 ${lang === 'ar' ? 'pr-5 pl-0 border-r-[3px] border-l-0 border-r-[#155dfc]' : 'border-l-[3px] border-[#155dfc]'}`}>
+                  <blockquote className="text-gray-300 text-sm md:text-base leading-[1.8] font-light">
                     {lang === 'ar'
-                      ? '"أنا مش هنا أبني شركة — أنا هنا أبني الجيل القادم من الإنترنت. كل منصة نبنيها لازم تكون تحفة فنية ومكينة ربح في نفس الوقت."'
-                      : '"I\'m not here to build a company — I\'m here to engineer the next generation of the internet. Every platform we ship must be a masterpiece and a money machine simultaneously."'}
+                      ? '"أنا مش بابني شركة — أنا بابني الإنترنت اللي المفروض يكون. كل منصة بنطلعها لازم تبقا تحفة فنية ومكينة ربح في آن واحد. مفيش وسط."'
+                      : '"I don\'t build companies — I engineer the internet that should exist. Every platform we ship must be a masterpiece and a profit machine. There is no middle ground."'
+                    }
                   </blockquote>
                 </div>
 
                 {/* Achievement pills */}
-                <div className={`flex flex-wrap gap-2 mb-5 ${lang === 'ar' ? 'flex-row-reverse' : ''}`}>
+                <div className={`flex flex-wrap gap-2 mb-7 ${lang === 'ar' ? 'flex-row-reverse' : ''}`}>
                   {[
-                    { label: lang === 'ar' ? 'Ex-Google Engineer' : 'Ex-Google Engineer',  color: '#06b6d4' },
-                    { label: lang === 'ar' ? '14 سنة خبرة' : '14 Yrs Experience',          color: '#155dfc' },
-                    { label: lang === 'ar' ? '+$1.2B إيرادات' : '$1.2B+ Revenue Generated', color: '#8b5cf6' },
-                    { label: lang === 'ar' ? '+200 مشروع' : '200+ Projects Shipped',        color: '#10b981' },
+                    { label: 'Ex-Google Engineer', color: '#06b6d4'  },
+                    { label: '14+ Yrs Experience', color: '#155dfc'  },
+                    { label: '$1.2B+ Revenue',      color: '#8b5cf6'  },
+                    { label: 'Forbes 30 Under 30',  color: '#f59e0b'  },
+                    { label: '200+ Shipped',         color: '#10b981'  },
                   ].map((p, i) => (
-                    <span key={i} className="text-[11px] font-semibold font-mono px-3 py-1 rounded-full border" style={{ color: p.color, borderColor: `${p.color}40`, background: `${p.color}12` }}>
+                    <span key={i} className="text-[11px] font-bold font-mono px-3 py-1.5 rounded-full border"
+                      style={{ color: p.color, borderColor: `${p.color}50`, background: `${p.color}14` }}>
                       {p.label}
                     </span>
                   ))}
                 </div>
 
-                {/* Sub-team grid */}
-                <div className={`grid grid-cols-2 sm:grid-cols-4 gap-3 w-full ${lang === 'ar' ? 'direction-rtl' : ''}`}>
-                  {t.team.members.map((member, i) => (
+                {/* 4 key stats row */}
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 w-full">
+                  {[
+                    { val: '50+',   label: lang === 'ar' ? 'عضو فريق' : 'Team Members' },
+                    { val: '200+',  label: lang === 'ar' ? 'مشروع' : 'Projects Built' },
+                    { val: '$1.2B', label: lang === 'ar' ? 'إيرادات' : 'Revenue Gen.' },
+                    { val: '50+',   label: lang === 'ar' ? 'دولة' : 'Countries' },
+                  ].map((s, i) => (
                     <motion.div
                       key={i}
-                      initial={{ opacity: 0, scale: 0.9 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: false }}
-                      transition={{ duration: 0.5, delay: 0.2 + i * 0.07 }}
-                      className={`p-3 rounded-xl border border-white/5 bg-[#030b20]/50 backdrop-blur-xl hover:border-blue-500/25 transition-all ${lang === 'ar' ? 'text-right' : ''}`}
+                      transition={{ duration: 0.5, delay: 0.3 + i * 0.08 }}
+                      className={`p-4 rounded-2xl border border-white/5 bg-[#030b20]/50 backdrop-blur-xl hover:border-blue-500/20 transition-all ${lang === 'ar' ? 'text-right' : ''}`}
                     >
-                      <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-[#155dfc] to-blue-400 flex items-center justify-center text-white font-bold text-xs mb-2 shadow-[0_0_15px_rgba(21,93,252,0.3)]">
-                        {member.name.split(' ').map((n: string) => n[0]).join('')}
-                      </div>
-                      <h4 className="text-white font-bold text-[11px] mb-0.5 leading-tight">{member.name}</h4>
-                      <p className="text-gray-500 text-[10px] mb-1.5">{member.role}</p>
-                      <span className="text-[9px] px-1.5 py-0.5 rounded bg-blue-500/10 border border-blue-500/20 text-blue-400 font-mono">{member.prev}</span>
+                      <span className="block font-display text-2xl font-black text-white mb-0.5">{s.val}</span>
+                      <span className="text-[#3b82f6] text-[10px] font-semibold uppercase tracking-wider">{s.label}</span>
                     </motion.div>
                   ))}
                 </div>
+
               </motion.div>
             </div>
 
           </div>
         </section>
+
 
         {/* ━━━━ SECTION 4 · TECH ━━━━ */}
 
