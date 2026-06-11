@@ -671,13 +671,17 @@ export default function App() {
                 transition={{ repeat: Infinity, duration: 3.5, ease: 'easeInOut' }}
                 className="absolute -top-4 -right-4 flex flex-col items-center justify-center w-16 h-16 rounded-full bg-[#155dfc] shadow-[0_0_30px_rgba(21,93,252,0.8)] border-2 border-blue-300/30"
               >
-                <span className="text-white font-black text-[10px] font-mono leading-tight text-center">#1<br />CEO</span>
+                <span className="text-white font-black text-[9px] font-mono leading-tight text-center">
+                  {lang === 'ar' ? <>المدير<br />الاقوى</> : <>#1<br />CEO</>}
+                </span>
               </motion.div>
 
               {/* Name + title BELOW image */}
               <div className={`mt-4 ${lang === 'ar' ? 'text-right' : 'text-left'}`}>
-                <p className="text-white font-bold text-lg tracking-tight">Ziad Ayman</p>
-                <p className="text-[#3b82f6] text-[11px] font-mono font-semibold uppercase tracking-[0.2em]">Founder & CEO · SUVEX</p>
+                <p className="text-white font-bold text-lg tracking-tight">{lang === 'ar' ? 'زياد أيمن' : 'Ziad Ayman'}</p>
+                <p className="text-[#3b82f6] text-[11px] font-mono font-semibold uppercase tracking-[0.2em]">
+                  {lang === 'ar' ? 'المؤسس والمدير التنفيذي · سوفيكس' : 'Founder & CEO · SUVEX'}
+                </p>
               </div>
             </motion.div>
 
@@ -699,7 +703,7 @@ export default function App() {
                 {/* Headline */}
                 <h2 className="font-display text-4xl sm:text-5xl lg:text-[3.6rem] font-black leading-[1.05] tracking-tight mb-5">
                   {lang === 'ar'
-                    ? <>'رؤية تُبنى على<br /><span className="text-[#155dfc]">المستحيل.</span>'</>
+                    ? <span>رؤية تُبنى على<br /><span className="text-[#155dfc]">المستحيل.</span></span>
                     : <span>Built on <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#155dfc] to-blue-300">Vision.</span><br />Driven by Domination.</span>
                   }
                 </h2>
@@ -717,11 +721,11 @@ export default function App() {
                 {/* Achievement pills */}
                 <div className={`flex flex-wrap gap-2 mb-7 ${lang === 'ar' ? 'flex-row-reverse' : ''}`}>
                   {[
-                    { label: 'Ex-Google Engineer', color: '#06b6d4' },
-                    { label: '14+ Yrs Experience', color: '#155dfc' },
-                    { label: '$1.2B+ Revenue', color: '#8b5cf6' },
-                    { label: 'Forbes 30 Under 30', color: '#f59e0b' },
-                    { label: '200+ Shipped', color: '#10b981' },
+                    { label: lang === 'ar' ? 'مهندس سابق بجوجل' : 'Ex-Google Engineer', color: '#06b6d4' },
+                    { label: lang === 'ar' ? 'خبرة +14 سنة' : '14+ Yrs Experience', color: '#155dfc' },
+                    { label: lang === 'ar' ? 'مبيعات +50 مليون' : '$1.2B+ Revenue', color: '#8b5cf6' },
+                    { label: lang === 'ar' ? 'فوربس 30 تحت 30' : 'Forbes 30 Under 30', color: '#f59e0b' },
+                    { label: lang === 'ar' ? '+200 مشروع ناجح' : '200+ Shipped', color: '#10b981' },
                   ].map((p, i) => (
                     <span key={i} className="text-[11px] font-bold font-mono px-3 py-1.5 rounded-full border"
                       style={{ color: p.color, borderColor: `${p.color}50`, background: `${p.color}14` }}>
