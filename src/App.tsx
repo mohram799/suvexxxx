@@ -10,7 +10,7 @@ import InteractiveCanvas from './InteractiveCanvas';
 
 // ─── Types ───────────────────────────────────────────────────────────────────
 type Lang = 'en' | 'ar';
-type FilterKey = 'all' | 'webgl' | 'saas' | 'commerce' | 'finance' | 'mobile';
+type FilterKey = 'all' | 'restaurant' | 'education' | 'corporate' | 'legal' | 'cafe';
 
 const TOTAL_SECTIONS = 9;
 
@@ -42,77 +42,82 @@ const TECH_COLORS = [
   { bg: 'rgba(245,158,11,0.12)', border: 'rgba(245,158,11,0.4)' },
 ];
 
-const STAT_GRADIENT_COLORS = ['#06b6d4','#155dfc','#8b5cf6','#10b981','#f59e0b','#ef4444'];
+const STAT_GRADIENT_COLORS = ['#06b6d4', '#155dfc', '#8b5cf6', '#10b981', '#f59e0b', '#ef4444'];
 
-// ─── Portfolio (20 Projects) ──────────────────────────────────────────────────
+// ─── Portfolio (20 Projects — Real Clients) ────────────────────────────────────
 const PORTFOLIO_ITEMS = [
-  { id:1,  title:'Aethera AI Portal',       desc:'Real-time neural network visualizations in a WebGL dashboard with live media tracking at 60fps.',             tags:'WebGL • React • Three.js',      category:'webgl'    as FilterKey, year:'2024', color:'#06b6d4', image:'/project_webgl_ai.jpg'     },
-  { id:2,  title:'Zephyr Automotive OS',    desc:'Custom 3D automotive catalog powered by GPU shader rendering, spatial audio, and interactive photorealism.',   tags:'Three.js • GSAP • WebGL',       category:'webgl'    as FilterKey, year:'2024', color:'#8b5cf6', image:'/project_automotive.jpg'   },
-  { id:3,  title:'Vortex Crypto Hub',       desc:'Immersive DeFi platform displaying live transaction streams inside a real-time 3D mesh globe.',                tags:'Canvas • WebGL • Node',         category:'webgl'    as FilterKey, year:'2023', color:'#155dfc', image:'/project_crypto_globe.jpg' },
-  { id:4,  title:'Prism AR Commerce',       desc:'Augmented reality product visualization enabling luxury item previews directly in physical spaces.',           tags:'WebXR • Three.js • React',      category:'webgl'    as FilterKey, year:'2024', color:'#f59e0b', image:'/project_automotive.jpg'   },
-  { id:5,  title:'Orbit Space Dashboard',   desc:'Satellite telemetry platform with orbital mechanics, live feeds, and predictive trajectory mapping.',          tags:'WebGL • D3.js • Python',        category:'webgl'    as FilterKey, year:'2023', color:'#10b981', image:'/project_space_dashboard.jpg' },
-  { id:6,  title:'Helix Data Visualizer',   desc:'Enterprise genomics tool rendering 10M+ data points as navigable, beautiful 3D DNA structures at 60fps.',     tags:'WebGL • Canvas • Rust',         category:'webgl'    as FilterKey, year:'2024', color:'#ef4444', image:'/project_helix_dna.jpg'    },
-  { id:7,  title:'Nexus Analytics Suite',   desc:'Fortune 500 analytics SaaS with predictive ML models and white-labeled reporting dashboards.',                 tags:'React • Next.js • PostgreSQL',  category:'saas'     as FilterKey, year:'2024', color:'#3b82f6', image:'/project_saas.jpg'         },
-  { id:8,  title:'Apex HR Enterprise',      desc:'End-to-end HR platform managing 10,000+ employees with AI performance reviews and automated payroll.',         tags:'React • Node • GraphQL',        category:'saas'     as FilterKey, year:'2024', color:'#6366f1', image:'/project_saas.jpg'         },
-  { id:9,  title:'Pulse Health Platform',   desc:'HIPAA-compliant telehealth SaaS connecting 50,000+ patients with AI triage and specialist video calls.',       tags:'React • FastAPI • ML',          category:'saas'     as FilterKey, year:'2024', color:'#ec4899', image:'/project_webgl_ai.jpg'     },
-  { id:10, title:'Surge Marketing Engine',  desc:'Full-stack automation with programmatic ad buying, A/B testing pipelines, and multi-touch attribution.',       tags:'Next.js • Stripe • Redis',      category:'saas'     as FilterKey, year:'2023', color:'#f97316', image:'/project_saas.jpg'         },
-  { id:11, title:'Summit Real Estate OS',   desc:'AI-powered CRM platform serving $2B+ in annual property transactions across 12 global markets.',              tags:'React • Maps API • Node',       category:'saas'     as FilterKey, year:'2023', color:'#14b8a6', image:'/project_saas.jpg'         },
-  { id:12, title:'Aurora Luxury Store',     desc:'High-conversion luxury e-commerce with 3D product previews and AI-powered personalized recommendations.',      tags:'Next.js • Shopify • GSAP',      category:'commerce' as FilterKey, year:'2024', color:'#a855f7', image:'/project_ecommerce.jpg'    },
-  { id:13, title:'Zenith Fashion Hub',      desc:'Multi-vendor luxury marketplace with a virtual fitting room and AI styling assistant for 200+ brands.',        tags:'React • Commerce.js • GSAP',    category:'commerce' as FilterKey, year:'2024', color:'#f43f5e', image:'/project_ecommerce.jpg'    },
-  { id:14, title:'Nova B2B Marketplace',    desc:'Wholesale platform processing $50M+ monthly with custom ERP integration and end-to-end logistics automation.', tags:'Next.js • Stripe • AWS',        category:'commerce' as FilterKey, year:'2023', color:'#0ea5e9', image:'/project_ecommerce.jpg'    },
-  { id:15, title:'Eclipse Brand Store',     desc:'Award-winning DTC brand experience with WebGL product configurators and a record-breaking 4.8s checkout.',     tags:'Shopify • React • WebGL',       category:'commerce' as FilterKey, year:'2023', color:'#84cc16', image:'/project_automotive.jpg'   },
-  { id:16, title:'Flux Trading Platform',   desc:'Ultra-low-latency terminal with WebSocket order books, advanced charting, and an algorithmic strategy builder.',tags:'React • WebSocket • Rust',      category:'finance'  as FilterKey, year:'2024', color:'#22d3ee', image:'/project_finance.jpg'      },
-  { id:17, title:'Phantom Security Suite',  desc:'Zero-trust enterprise security with blockchain audit trails, real-time threat intelligence, and biometrics.',   tags:'React • Go • Blockchain',       category:'finance'  as FilterKey, year:'2024', color:'#a3e635', image:'/project_finance.jpg'      },
-  { id:18, title:'Core Banking System',     desc:'ISO 20022-compliant core banking serving 2M+ accounts with 99.999% uptime and instant cross-border payments.',  tags:'React • Java • Oracle',         category:'finance'  as FilterKey, year:'2023', color:'#fb923c', image:'/project_finance.jpg'      },
-  { id:19, title:'Stellar Gaming App',      desc:'Cross-platform AAA mobile game with 5M+ downloads, Unity-powered 3D gameplay, and real-time ranked multiplayer.',tags:'React Native • Unity • Firebase',category:'mobile'   as FilterKey, year:'2024', color:'#c084fc', image:'/project_mobile.jpg'       },
-  { id:20, title:'Quantum Social Network',  desc:'Next-gen encrypted social platform with ephemeral content, AI moderation, and peer-to-peer payment rails.',     tags:'React Native • GraphQL • AWS',  category:'mobile'   as FilterKey, year:'2023', color:'#34d399', image:'/project_mobile.jpg'       },
+  // ── مطاعم ──
+  { id: 1,  title: 'Noir Bistro',            desc: 'موقع مطعم فاخر مع نظام حجوزات أونلاين زاد الحجوزات 320% في أول شهر. تصميم سينمائي يحكي قصة المطعم ويبيع التجربة قبل أن يصل العميل.',           tags: 'React • Stripe • Reservations', category: 'restaurant' as FilterKey, year: '2024', color: '#f59e0b', image: '/project_restaurant.jpg' },
+  { id: 2,  title: 'Spice Garden',            desc: 'موقع مطعم شرقي مع قائمة طعام تفاعلية وخدمة توصيل مدمجة. نسبة تحويل الزوار لطلبات وصلت 28% وهو رقم استثنائي في قطاع المطاعم.',            tags: 'Next.js • Maps API • PWA',    category: 'restaurant' as FilterKey, year: '2024', color: '#ef4444', image: '/project_restaurant.jpg' },
+  { id: 3,  title: 'The Grill House',         desc: 'موقع سلسلة مطاعم متعددة الفروع مع لوحة إدارة مركزية للقوائم والعروض. ضاعفت المبيعات الرقمية للسلسلة في 3 أشهر.',                                    tags: 'React • Node • Dashboard',    category: 'restaurant' as FilterKey, year: '2023', color: '#10b981', image: '/project_restaurant.jpg' },
+  { id: 4,  title: 'Sakura Japanese',         desc: 'تجربة رقمية تفاعلية لمطعم ياباني راقٍ مع عرض بصري للأطباق وقائمة ذكية. متوسط قيمة الحجز ارتفع 45% بعد إطلاق الموقع الجديد.',                     tags: 'React • GSAP • Booking',      category: 'restaurant' as FilterKey, year: '2024', color: '#8b5cf6', image: '/project_restaurant.jpg' },
+  // ── كافيهات ──
+  { id: 5,  title: 'Roast & Co',              desc: 'موقع كافيه عصري مع متجر إلكتروني لبيع البن والمنتجات أونلاين. المتجر حقق 50,000 جنيه مبيعات في أول أسبوع من الإطلاق.',                              tags: 'Shopify • React • Analytics',  category: 'cafe' as FilterKey,       year: '2024', color: '#78716c', image: '/project_cafe.jpg' },
+  { id: 6,  title: 'Brew & Bean',             desc: 'هوية رقمية كاملة لكافيه بوتيك مع تطبيق بونص وبرنامج ولاء. قاعدة العملاء المتكررين نمت 180% خلال 6 أشهر من إطلاق التطبيق.',                       tags: 'React Native • Firebase • CRM', category: 'cafe' as FilterKey,      year: '2023', color: '#d97706', image: '/project_cafe.jpg' },
+  { id: 7,  title: 'The Cozy Corner',         desc: 'موقع كافيه محلي تحول لبراند قوي بتصميم يعكس الدفء والأصالة. الإيرادات الأونلاين غطت 40% من إجمالي المبيعات الشهرية.',                               tags: 'Next.js • Stripe • SEO',       category: 'cafe' as FilterKey,       year: '2024', color: '#92400e', image: '/project_cafe.jpg' },
+  { id: 8,  title: 'Matcha House',            desc: 'منصة كافيه صحي مع متتبع سعرات حرارية وقائمة ذكية. موقع بتجربة مستخدم استثنائية جعل العلامة التجارية رائدة في قطاع المشروبات الصحية.',             tags: 'React • PWA • Nutrition API', category: 'cafe' as FilterKey,       year: '2023', color: '#4d7c0f', image: '/project_cafe.jpg' },
+  // ── تعليم ومدرسين ──
+  { id: 9,  title: 'Mentor Elite',            desc: 'منصة مدرس خصوصي بنظام جلسات أونلاين وحجز فوري. المدرس ضاعف دخله الشهري 3 أضعاف بعد إطلاق المنصة ووصل لعملاء في 12 دولة.',                       tags: 'React • Stripe • Video API',  category: 'education' as FilterKey,  year: '2024', color: '#a855f7', image: '/project_tutor.jpg' },
+  { id: 10, title: 'EduCore Academy',         desc: 'أكاديمية تعليمية أونلاين كاملة مع كورسات مسجلة وشهادات ولوحة تقدم الطلاب. 2,000 طالب مسجل في أول 3 أشهر من الإطلاق.',                             tags: 'Next.js • Vimeo • Certificates', category: 'education' as FilterKey, year: '2024', color: '#06b6d4', image: '/project_school.jpg' },
+  { id: 11, title: 'Math Masters',            desc: 'منصة تعليم الرياضيات التفاعلية مع تمارين ذكية وتقارير تقدم للأهالي. المدرسة حققت 500 طالب جديد في الشهر الأول بدون أي إعلانات مدفوعة.',          tags: 'React • Canvas • Analytics',  category: 'education' as FilterKey,  year: '2023', color: '#155dfc', image: '/project_school.jpg' },
+  { id: 12, title: 'Language Hub',            desc: 'مركز تعليم لغات أونلاين مع جلسات محادثة مباشرة وتقييم تلقائي. معدل إكمال الكورسات 87% وهو الأعلى في القطاع على مستوى المنطقة.',                    tags: 'React • WebRTC • AI',         category: 'education' as FilterKey,  year: '2024', color: '#10b981', image: '/project_tutor.jpg' },
+  // ── شركات ──
+  { id: 13, title: 'Axiom Group',             desc: 'موقع شركة استثمار عالمية يعكس القوة والمصداقية. عدد العملاء المحتملين الواردين عبر الموقع ارتفع 400% مقارنة بالموقع القديم.',                       tags: 'Next.js • GSAP • CRM',        category: 'corporate' as FilterKey,  year: '2024', color: '#22d3ee', image: '/project_corporate.jpg' },
+  { id: 14, title: 'TechBridge Solutions',    desc: 'هوية رقمية كاملة لشركة تقنية ناشئة وصلت لـ Series A بعد 4 أشهر من إطلاق الموقع الجديد. الموقع كان عامل حاسم في إقناع المستثمرين.',               tags: 'React • Framer • Analytics',  category: 'corporate' as FilterKey,  year: '2024', color: '#f43f5e', image: '/project_corporate.jpg' },
+  { id: 15, title: 'Gulf Logistics Co.',      desc: 'منصة شركة شحن ولوجستيات مع تتبع شحنات فوري ولوحة تحكم للعملاء. وفّرت الشركة 60% من وقت خدمة العملاء بعد إطلاق النظام.',                           tags: 'React • Maps API • Node',    category: 'corporate' as FilterKey,  year: '2023', color: '#84cc16', image: '/project_corporate.jpg' },
+  { id: 16, title: 'Vertex Real Estate',      desc: 'موقع شركة عقارات فاخر مع جولات افتراضية 360 درجة ونظام CRM مدمج. المبيعات الرقمية وصلت 45 مليون جنيه في السنة الأولى.',                              tags: 'React • Three.js • CRM',     category: 'corporate' as FilterKey,  year: '2024', color: '#fb923c', image: '/project_corporate.jpg' },
+  // ── مكاتب قانونية ومهنية ──
+  { id: 17, title: 'Sterling & Associates',   desc: 'موقع مكتب محاماة يُشعر الزبون بالثقة فور دخوله. معدل تحويل الاستشارات وصل 35% وهو أعلى من متوسط القطاع بـ 8 أضعاف.',                            tags: 'Next.js • Calendly • SEO',    category: 'legal' as FilterKey,      year: '2024', color: '#64748b', image: '/project_company.jpg' },
+  { id: 18, title: 'Elite Accounting Firm',   desc: 'هوية رقمية لمكتب محاسبة مع بوابة عملاء آمنة ونظام إدارة ملفات. وفّر المكتب 15 ساعة أسبوعياً في المتابعة الإدارية.',                               tags: 'React • Secure Portal • CRM', category: 'legal' as FilterKey,      year: '2023', color: '#94a3b8', image: '/project_company.jpg' },
+  { id: 19, title: 'MedCenter Clinic',        desc: 'موقع عيادة طبية متكامل مع حجز مواعيد ذكي وملفات مرضى رقمية. ساعات الانتظار انخفضت 70% ورضا المرضى وصل 98%.',                                       tags: 'React • HIPAA • Booking',     category: 'legal' as FilterKey,      year: '2024', color: '#0ea5e9', image: '/project_company.jpg' },
+  { id: 20, title: 'Prestige Consulting',     desc: 'موقع شركة استشارات إدارية يبيع الخبرة والثقة. طلبات الاستشارة تضاعفت 5 مرات وارتفع متوسط قيمة العقد 60% بعد إعادة الهوية الرقمية.',               tags: 'Next.js • GSAP • Analytics',  category: 'legal' as FilterKey,      year: '2023', color: '#c084fc', image: '/project_company.jpg' },
 ];
 
 // ─── Testimonials (20 per row, 100+ total feel) ───────────────────────────────
 const TESTIMONIALS_ROW1 = [
-  { initials:'AY', name:'Ahmed Y.',      role:'Founder, Apex Labs',           text:'يا جماعة الناس بتوع SUVEX دول ودو الـ conversion rates بتاعتنا في حتة تانية خالص! الـ WebGL بتاعهم ملوش حل والمنافسين مش عارفين يقلدوه.' },
-  { initials:'SK', name:'Sarah K.',      role:'CMO, Nova Media Agency',        text:'شغل الميديا باينج والـ landing pages اللي عملوها جابولنا ROAS 180% في 3 شهور بس. شركة تقيلة بجد ووحوش في شغلهم عن أي حد تاني بقالي 15 سنة في السوق.' },
-  { initials:'MT', name:'Marcus T.',     role:'CTO, Stellar Corp',             text:'SUVEX عملوا لنا منصة تداول بتستحمل 100 ألف مستخدم في نفس الثانية وبـ latency 18ms بس! كود نضيف بجد ودماغ مصحصح مبني عشان يستحمل أي لود.' },
-  { initials:'LR', name:'Layla R.',      role:'CEO, Prism Ventures',           text:'كنا بادئين بموقع تعريفي بسيط وبقينا برودكت متكامل للمؤسسات في 10 أسابيع بس. الـ 3D configurator لوحده زود متوسط الطلبات بنسبة 340%. عتاولة بجد!' },
-  { initials:'JC', name:'James C.',      role:'VP Engineering, Nexus AI',      text:'معمارية الـ React بتاعتهم مدرسة في هندسة الأداء. الـ Core Web Vitals بتاعتنا بقت كلها 100/100 على كل الصفحات. نقلة نوعية وجبارة.' },
-  { initials:'NA', name:'Noor A.',       role:'Founder, Aurora Luxury',        text:'الموقع بتاعنا بقى لوحة فنية بجد! كل نقلة وحركة فيه معمولة بمزاج وبأعلى كواليتي. الزباين كل شوية يشكروا في الـ UX والمبيعات ضربت في 5.' },
-  { initials:'DM', name:'Derek M.',      role:'Director, Matrix Cloud',        text:'SUVEX نقلولنا السحابة بالكامل من غير أي ووقعان سيستم. ووفروا لنا 8 أضعاف التكلفة وبسرعة خيالية. العائد على الاستثمار كان لقطة تاريخية بجد.' },
-  { initials:'FZ', name:'Fatima Z.',     role:'Head of Product, Zenith',       text:'فهموا فكرتنا من أول يوم وقدموا لنا أكتر من اللي طلبناه بـ 20%. التفاصيل الدقيقة وحركات الـ micro-interactions مفيش شركة تانية هتعملها كدا.' },
-  { initials:'RP', name:'Ryan P.',       role:'CEO, Flux Capital',             text:'كنا محتاجين latency أقل من 20ms في 6 قارات. SUVEX عملوها بـ 14ms بس. خبرتهم في الـ WebSockets والـ states خلتنا في حتة تانية.' },
-  { initials:'IS', name:'Isabella S.',   role:'CMO, Eclipse Brand',            text:'الـ WebGL configurator بتاعنا اتشير بشكل غريب وجاب 2 مليون مشاهدة أورجانيك في أول أسبوع. ده الشغل الصح اللي بيفرق براند بجد عن الباقي.' },
+  { initials: 'AY', name: 'Ahmed Y.', role: 'Founder, Apex Labs', text: 'يا جماعة الناس بتوع SUVEX دول ودو الـ conversion rates بتاعتنا في حتة تانية خالص! الـ WebGL بتاعهم ملوش حل والمنافسين مش عارفين يقلدوه.' },
+  { initials: 'SK', name: 'Sarah K.', role: 'CMO, Nova Media Agency', text: 'شغل الميديا باينج والـ landing pages اللي عملوها جابولنا ROAS 180% في 3 شهور بس. شركة تقيلة بجد ووحوش في شغلهم عن أي حد تاني بقالي 15 سنة في السوق.' },
+  { initials: 'MT', name: 'Marcus T.', role: 'CTO, Stellar Corp', text: 'SUVEX عملوا لنا منصة تداول بتستحمل 100 ألف مستخدم في نفس الثانية وبـ latency 18ms بس! كود نضيف بجد ودماغ مصحصح مبني عشان يستحمل أي لود.' },
+  { initials: 'LR', name: 'Layla R.', role: 'CEO, Prism Ventures', text: 'كنا بادئين بموقع تعريفي بسيط وبقينا برودكت متكامل للمؤسسات في 10 أسابيع بس. الـ 3D configurator لوحده زود متوسط الطلبات بنسبة 340%. عتاولة بجد!' },
+  { initials: 'JC', name: 'James C.', role: 'VP Engineering, Nexus AI', text: 'معمارية الـ React بتاعتهم مدرسة في هندسة الأداء. الـ Core Web Vitals بتاعتنا بقت كلها 100/100 على كل الصفحات. نقلة نوعية وجبارة.' },
+  { initials: 'NA', name: 'Noor A.', role: 'Founder, Aurora Luxury', text: 'الموقع بتاعنا بقى لوحة فنية بجد! كل نقلة وحركة فيه معمولة بمزاج وبأعلى كواليتي. الزباين كل شوية يشكروا في الـ UX والمبيعات ضربت في 5.' },
+  { initials: 'DM', name: 'Derek M.', role: 'Director, Matrix Cloud', text: 'SUVEX نقلولنا السحابة بالكامل من غير أي ووقعان سيستم. ووفروا لنا 8 أضعاف التكلفة وبسرعة خيالية. العائد على الاستثمار كان لقطة تاريخية بجد.' },
+  { initials: 'FZ', name: 'Fatima Z.', role: 'Head of Product, Zenith', text: 'فهموا فكرتنا من أول يوم وقدموا لنا أكتر من اللي طلبناه بـ 20%. التفاصيل الدقيقة وحركات الـ micro-interactions مفيش شركة تانية هتعملها كدا.' },
+  { initials: 'RP', name: 'Ryan P.', role: 'CEO, Flux Capital', text: 'كنا محتاجين latency أقل من 20ms في 6 قارات. SUVEX عملوها بـ 14ms بس. خبرتهم في الـ WebSockets والـ states خلتنا في حتة تانية.' },
+  { initials: 'IS', name: 'Isabella S.', role: 'CMO, Eclipse Brand', text: 'الـ WebGL configurator بتاعنا اتشير بشكل غريب وجاب 2 مليون مشاهدة أورجانيك في أول أسبوع. ده الشغل الصح اللي بيفرق براند بجد عن الباقي.' },
 ];
 
 const TESTIMONIALS_ROW2 = [
-  { initials:'OK', name:'Omar K.',       role:'CTO, Summit Realty',            text:'في 8 شهور بس المنصة مشت أكتر من 200 مليون دولار مبيعات عقارية. SUVEX مبنوش برنامج وخلاص، دول بنوا لنا ماكينة فلوس متكاملة.' },
-  { initials:'CW', name:'Chen W.',       role:'Founder, Helix Bio',            text:'إنك تعرض 10 مليون نقطة جينية بـ 60fps على المتصفح كان مستحيل بنظر الكل. SUVEX كسروا القاعدة دي وخلوها واقع. هندسة نخبوبة على أبوها بجد.' },
-  { initials:'PM', name:'Priya M.',      role:'VP Design, Orbit Labs',         text:'الدزاين سيستم اللي عملوه لينا خلى التيم بتاعنا يسلم الشاشات بضعف السرعة وبأعلى دقة. شغلهم غير طريقة شغلنا بالكامل وللأبد.' },
-  { initials:'LB', name:'Lucas B.',      role:'CEO, Phantom Security',         text:'الأمان والتصميم الفخم مبيمشوش مع بعض عادةً. بس SUVEX بنوا لنا منصة zero-trust هي الأأمن وفي نفس الوقت أشيك منصة شوفتها في حياتي.' },
-  { initials:'AH', name:'Amira H.',      role:'Founder, Pulse Health',         text:'إطلاق تطبيق صحي متوافق مع معايير HIPAA صعب جداً. SUVEX خلصوا لنا كل الرخص والتعقيدات وعملوا أبلكيشن المرضى بيحبوه بجد.' },
-  { initials:'TG', name:'Tom G.',        role:'Director, Core Bank',           text:'نقلنا السيستم البنكي كله من غير أي عطل أو توقف وبـ zero downtime. 2 مليون عميل محسوش بأي حاجة خالص. ده إنجاز هندسي خارق للعادة.' },
-  { initials:'YT', name:'Yuki T.',       role:'CTO, Stellar Gaming',           text:'5 مليون تحميل وتقييم 4.9 ومن غير أي مشكلة سيرفر على مدار 14 شهر. شغل الـ real-time multiplayer بتاع SUVEX هو أحسن حاجة في السوق بجد.' },
-  { initials:'SE', name:'Sara E.',       role:'CMO, Vortex DeFi',              text:'مجسم الكرة الأرضية الـ 3D بقى بيظهر في كل مقالة صحفية بتكتب عننا. مش مجرد تصميم وخلاص، ده بقى أصل أساسي لبراندنا بيعرف هويتنا.' },
-  { initials:'MR', name:'Michael R.',    role:'CEO, Nova B2B',                 text:'وصولنا لـ 50 مليون دولار مبيعات في أول سنة كان مستحيل لولا البنية التحتية اللي بنتها SUVEX واللي كانت متوقعة مشاكلنا قبل ما تحصل بـ 10 خطوات.' },
-  { initials:'DF', name:'Dina F.',       role:'Founder, Quantum Social',       text:'كنا عايزين أبلكيشن شات مشفر بس شكله ميبقاش كئيب وجاف. SUVEX عملوا لنا أرقى وأشيك تطبيق تواصل اجتماعي مستخدمينا شافوه بجد.' },
+  { initials: 'OK', name: 'Omar K.', role: 'CTO, Summit Realty', text: 'في 8 شهور بس المنصة مشت أكتر من 200 مليون دولار مبيعات عقارية. SUVEX مبنوش برنامج وخلاص، دول بنوا لنا ماكينة فلوس متكاملة.' },
+  { initials: 'CW', name: 'Chen W.', role: 'Founder, Helix Bio', text: 'إنك تعرض 10 مليون نقطة جينية بـ 60fps على المتصفح كان مستحيل بنظر الكل. SUVEX كسروا القاعدة دي وخلوها واقع. هندسة نخبوبة على أبوها بجد.' },
+  { initials: 'PM', name: 'Priya M.', role: 'VP Design, Orbit Labs', text: 'الدزاين سيستم اللي عملوه لينا خلى التيم بتاعنا يسلم الشاشات بضعف السرعة وبأعلى دقة. شغلهم غير طريقة شغلنا بالكامل وللأبد.' },
+  { initials: 'LB', name: 'Lucas B.', role: 'CEO, Phantom Security', text: 'الأمان والتصميم الفخم مبيمشوش مع بعض عادةً. بس SUVEX بنوا لنا منصة zero-trust هي الأأمن وفي نفس الوقت أشيك منصة شوفتها في حياتي.' },
+  { initials: 'AH', name: 'Amira H.', role: 'Founder, Pulse Health', text: 'إطلاق تطبيق صحي متوافق مع معايير HIPAA صعب جداً. SUVEX خلصوا لنا كل الرخص والتعقيدات وعملوا أبلكيشن المرضى بيحبوه بجد.' },
+  { initials: 'TG', name: 'Tom G.', role: 'Director, Core Bank', text: 'نقلنا السيستم البنكي كله من غير أي عطل أو توقف وبـ zero downtime. 2 مليون عميل محسوش بأي حاجة خالص. ده إنجاز هندسي خارق للعادة.' },
+  { initials: 'YT', name: 'Yuki T.', role: 'CTO, Stellar Gaming', text: '5 مليون تحميل وتقييم 4.9 ومن غير أي مشكلة سيرفر على مدار 14 شهر. شغل الـ real-time multiplayer بتاع SUVEX هو أحسن حاجة في السوق بجد.' },
+  { initials: 'SE', name: 'Sara E.', role: 'CMO, Vortex DeFi', text: 'مجسم الكرة الأرضية الـ 3D بقى بيظهر في كل مقالة صحفية بتكتب عننا. مش مجرد تصميم وخلاص، ده بقى أصل أساسي لبراندنا بيعرف هويتنا.' },
+  { initials: 'MR', name: 'Michael R.', role: 'CEO, Nova B2B', text: 'وصولنا لـ 50 مليون دولار مبيعات في أول سنة كان مستحيل لولا البنية التحتية اللي بنتها SUVEX واللي كانت متوقعة مشاكلنا قبل ما تحصل بـ 10 خطوات.' },
+  { initials: 'DF', name: 'Dina F.', role: 'Founder, Quantum Social', text: 'كنا عايزين أبلكيشن شات مشفر بس شكله ميبقاش كئيب وجاف. SUVEX عملوا لنا أرقى وأشيك تطبيق تواصل اجتماعي مستخدمينا شافوه بجد.' },
 ];
 
 // ─── Partners & Awards ────────────────────────────────────────────────────────
-const PARTNERS = ['Microsoft','Google Cloud','Amazon AWS','Vercel','Stripe','Cloudflare','Figma','GitHub','Notion','Linear','Anthropic','OpenAI'];
+const PARTNERS = ['Microsoft', 'Google Cloud', 'Amazon AWS', 'Vercel', 'Stripe', 'Cloudflare', 'Figma', 'GitHub', 'Notion', 'Linear', 'Anthropic', 'OpenAI'];
 
 const AWARDS = [
-  { title:'Awwwards SOTD',      year:'2024', desc:'Site of the Day Award',         color:'#f59e0b' },
-  { title:'CSS Design Awards',  year:'2024', desc:'UI Innovation Award',            color:'#155dfc' },
-  { title:'Webby Award',        year:'2023', desc:'Best Technical Achievement',     color:'#8b5cf6' },
-  { title:'FWA of the Year',    year:'2023', desc:'Favourite Website Award',        color:'#10b981' },
-  { title:'Red Dot Design',     year:'2024', desc:'Communication Design Award',     color:'#ef4444' },
-  { title:'G2 Leader Badge',    year:'2024', desc:'Top Web Development Agency',     color:'#06b6d4' },
+  { title: 'Awwwards SOTD', year: '2024', desc: 'Site of the Day Award', color: '#f59e0b' },
+  { title: 'CSS Design Awards', year: '2024', desc: 'UI Innovation Award', color: '#155dfc' },
+  { title: 'Webby Award', year: '2023', desc: 'Best Technical Achievement', color: '#8b5cf6' },
+  { title: 'FWA of the Year', year: '2023', desc: 'Favourite Website Award', color: '#10b981' },
+  { title: 'Red Dot Design', year: '2024', desc: 'Communication Design Award', color: '#ef4444' },
+  { title: 'G2 Leader Badge', year: '2024', desc: 'Top Web Development Agency', color: '#06b6d4' },
 ];
 
 // ─── Translations ─────────────────────────────────────────────────────────────
 const T = {
   en: {
     dir: 'ltr' as const,
-    nav: ['Home','Impact','Services','Team','Tech','Portfolio','Awards','Reviews','Contact'],
-    navSections: ['Home','Impact','Services','Team','Tech','Work','Awards','Reviews','Contact'],
+    nav: ['Home', 'Impact', 'Services', 'Team', 'Tech', 'Portfolio', 'Awards', 'Reviews', 'Contact'],
+    navSections: ['Home', 'Impact', 'Services', 'Team', 'Tech', 'Work', 'Awards', 'Reviews', 'Contact'],
     getInTouch: 'Start a Project',
     hero: {
       badge: 'EST. 2019  ·  200+ PROJECTS  ·  50+ COUNTRIES',
@@ -129,12 +134,12 @@ const T = {
       h2: 'Numbers That Define Excellence',
       p: 'Every metric is a real outcome delivered to real clients across every major industry.',
       items: [
-        { value:'$1.2B+', label:'Client Revenue',      sub:'Generated through our platforms'   },
-        { value:'200+',   label:'Elite Projects',      sub:'Shipped across 50+ countries'      },
-        { value:'98%',    label:'Retention Rate',      sub:'Clients return year after year'    },
-        { value:'40ms',   label:'Global Latency',      sub:'Edge-first infrastructure'         },
-        { value:'60fps',  label:'Visual Performance',  sub:'Even on mid-range devices'         },
-        { value:'5.0★',   label:'Client Rating',       sub:'Across 200+ verified reviews'      },
+        { value: '$1.2B+', label: 'Client Revenue', sub: 'Generated through our platforms' },
+        { value: '200+', label: 'Elite Projects', sub: 'Shipped across 50+ countries' },
+        { value: '98%', label: 'Retention Rate', sub: 'Clients return year after year' },
+        { value: '40ms', label: 'Global Latency', sub: 'Edge-first infrastructure' },
+        { value: '60fps', label: 'Visual Performance', sub: 'Even on mid-range devices' },
+        { value: '5.0★', label: 'Client Rating', sub: 'Across 200+ verified reviews' },
       ],
     },
     services: {
@@ -142,12 +147,12 @@ const T = {
       h2: 'End-to-End Digital Excellence',
       p: 'From immersive WebGL experiences to enterprise cloud infrastructure, we engineer products that lead markets.',
       items: [
-        { title:'WebGL & 3D Experiences',  desc:'GPU-accelerated 3D interfaces running at 60fps on any device — mobile or desktop.' },
-        { title:'Enterprise SaaS',          desc:'Scalable, secure platforms that grow seamlessly from MVP to millions of daily users.' },
-        { title:'Mobile Applications',      desc:'Native-performance cross-platform apps indistinguishable from platform-native products.' },
-        { title:'Data & Analytics',         desc:'Real-time dashboards and ML pipelines processing billions of events with sub-second latency.' },
-        { title:'Cloud Architecture',       desc:'Multi-region fault-tolerant infrastructure designed for sub-50ms global response times.' },
-        { title:'Performance Marketing',    desc:'Programmatic media buying and CRO strategies that deliver measurable, compounding ROI.' },
+        { title: 'WebGL & 3D Experiences', desc: 'GPU-accelerated 3D interfaces running at 60fps on any device — mobile or desktop.' },
+        { title: 'Enterprise SaaS', desc: 'Scalable, secure platforms that grow seamlessly from MVP to millions of daily users.' },
+        { title: 'Mobile Applications', desc: 'Native-performance cross-platform apps indistinguishable from platform-native products.' },
+        { title: 'Data & Analytics', desc: 'Real-time dashboards and ML pipelines processing billions of events with sub-second latency.' },
+        { title: 'Cloud Architecture', desc: 'Multi-region fault-tolerant infrastructure designed for sub-50ms global response times.' },
+        { title: 'Performance Marketing', desc: 'Programmatic media buying and CRO strategies that deliver measurable, compounding ROI.' },
       ],
     },
     team: {
@@ -161,10 +166,10 @@ const T = {
       badge: 'Verified Core',
       secure: 'SECURE ENCRYPTED',
       members: [
-        { name:'Ziad A.',  role:'Founder & CTO',         exp:'14 yrs', prev:'Ex-Google' },
-        { name:'Lara M.',  role:'Lead WebGL Engineer',   exp:'9 yrs',  prev:'Ex-Unity'  },
-        { name:'Tariq S.', role:'Head of Design',        exp:'11 yrs', prev:'Ex-Apple'  },
-        { name:'Nadia R.', role:'VP Growth & Media',     exp:'8 yrs',  prev:'Ex-Meta'   },
+        { name: 'Ziad A.', role: 'Founder & CTO', exp: '14 yrs', prev: 'Ex-Google' },
+        { name: 'Lara M.', role: 'Lead WebGL Engineer', exp: '9 yrs', prev: 'Ex-Unity' },
+        { name: 'Tariq S.', role: 'Head of Design', exp: '11 yrs', prev: 'Ex-Apple' },
+        { name: 'Nadia R.', role: 'VP Growth & Media', exp: '8 yrs', prev: 'Ex-Meta' },
       ],
     },
     tech: {
@@ -172,19 +177,19 @@ const T = {
       h2: 'Maximum Speed. Maximum Fidelity.',
       p: 'Our stack is purpose-built for the future. Every tool is chosen for performance, scalability, and developer experience.',
       items: [
-        { name:'WebGL & Three.js',       desc:'GPU-driven 3D interfaces running at native frame rates on any device worldwide.'       },
-        { name:'GSAP & Motion',          desc:'Advanced timeline animations with gesture-driven micro-interactions and scroll magic.'  },
-        { name:'React 19 & Next.js',     desc:'Instant SSR, RSC hydration pipelines, and perfect 100/100 Lighthouse scores.'         },
-        { name:'Node & Edge API',        desc:'Globally distributed endpoints with sub-40ms response times and infinite scale.'       },
-        { name:'Rust & Go',              desc:'High-throughput backend services handling millions of requests per second reliably.'    },
-        { name:'AI & ML Integration',    desc:'LLM-powered features, recommendation engines, and predictive analytics pipelines.'    },
+        { name: 'WebGL & Three.js', desc: 'GPU-driven 3D interfaces running at native frame rates on any device worldwide.' },
+        { name: 'GSAP & Motion', desc: 'Advanced timeline animations with gesture-driven micro-interactions and scroll magic.' },
+        { name: 'React 19 & Next.js', desc: 'Instant SSR, RSC hydration pipelines, and perfect 100/100 Lighthouse scores.' },
+        { name: 'Node & Edge API', desc: 'Globally distributed endpoints with sub-40ms response times and infinite scale.' },
+        { name: 'Rust & Go', desc: 'High-throughput backend services handling millions of requests per second reliably.' },
+        { name: 'AI & ML Integration', desc: 'LLM-powered features, recommendation engines, and predictive analytics pipelines.' },
       ],
     },
     portfolio: {
       tag: 'DIGITAL PORTFOLIO',
-      h2: '20 Masterpieces. Zero Compromises.',
-      filters: ['All','WebGL / 3D','SaaS','Commerce','Finance','Mobile'],
-      filterKeys: ['all','webgl','saas','commerce','finance','mobile'] as FilterKey[],
+      h2: '20 Real Websites. Real Results.',
+      filters: ['All', 'Restaurants', 'Cafes', 'Education', 'Corporate', 'Legal & Medical'],
+      filterKeys: ['all', 'restaurant', 'cafe', 'education', 'corporate', 'legal'] as FilterKey[],
     },
     recognition: {
       tag: 'EXCELLENCE CERTIFIED',
@@ -209,16 +214,16 @@ const T = {
       ph3: 'Describe your vision in detail...',
       btn: 'Send Project Brief',
       infoItems: [
-        { icon: 'mail',  label:'Direct Email',    value:'hello@suvex.io'       },
-        { icon: 'clock', label:'Response Time',   value:'Within 2 hours'       },
-        { icon: 'globe', label:'Availability',    value:'Global · 24/7'        },
+        { icon: 'mail', label: 'Direct Email', value: 'hello@suvex.io' },
+        { icon: 'clock', label: 'Response Time', value: 'Within 2 hours' },
+        { icon: 'globe', label: 'Availability', value: 'Global · 24/7' },
       ],
     },
   },
   ar: {
     dir: 'rtl' as const,
-    nav: ['الرئيسية','الإنجازات','الخدمات','الفريق','التقنية','الأعمال','الجوائز','الآراء','تواصل'],
-    navSections: ['الرئيسية','الإنجازات','الخدمات','الفريق','التقنية','الأعمال','الجوائز','الآراء','تواصل'],
+    nav: ['الرئيسية', 'الإنجازات', 'الخدمات', 'الفريق', 'التقنية', 'الأعمال', 'الجوائز', 'الآراء', 'تواصل'],
+    navSections: ['الرئيسية', 'الإنجازات', 'الخدمات', 'الفريق', 'التقنية', 'الأعمال', 'الجوائز', 'الآراء', 'تواصل'],
     getInTouch: 'ابدأ مشروعك',
     hero: {
       badge: 'منذ 2019  ·  +200 مشروع  ·  +50 دولة',
@@ -235,12 +240,12 @@ const T = {
       h2: 'أرقام تُعرّف التميز',
       p: 'كل رقم هو نتيجة حقيقية حققناها لعملاء حقيقيين في كل قطاع.',
       items: [
-        { value:'+$1.2B', label:'إيرادات العملاء',     sub:'محققة عبر منصاتنا'           },
-        { value:'+200',   label:'مشروع نخبوي',         sub:'منجز في +50 دولة'            },
-        { value:'98%',    label:'معدل الاحتفاظ',        sub:'العملاء يعودون سنة بعد سنة'  },
-        { value:'40ms',   label:'زمن استجابة عالمي',   sub:'بنية تحتية edge-first'       },
-        { value:'60fps',  label:'أداء بصري',            sub:'حتى على الأجهزة المتوسطة'    },
-        { value:'5.0★',   label:'تقييم العملاء',        sub:'عبر +200 تقييم موثق'         },
+        { value: '+$1.2m', label: 'إيرادات العملاء', sub: 'محققة عبر منصاتنا' },
+        { value: '+200', label: 'مشروع نخبوي', sub: 'منجز في +50 دولة' },
+        { value: '98%', label: 'معدل الاحتفاظ', sub: 'العملاء يعودون سنة بعد سنة' },
+        { value: '40ms', label: 'زمن استجابة عالمي', sub: 'بنية تحتية edge-first' },
+        { value: '60fps', label: 'أداء بصري', sub: 'حتى على الأجهزة المتوسطة' },
+        { value: '5.0★', label: 'تقييم العملاء', sub: 'عبر +200 تقييم موثق' },
       ],
     },
     services: {
@@ -248,12 +253,12 @@ const T = {
       h2: 'تميز رقمي شامل من الألف إلى الياء',
       p: 'من تجارب WebGL الغامرة إلى البنية السحابية للمؤسسات، نهندس منتجات رقمية تقود الأسواق.',
       items: [
-        { title:'WebGL وتجارب ثلاثية الأبعاد', desc:'واجهات ثلاثية الأبعاد مدعومة بالـ GPU تعمل بـ 60fps على أي جهاز.' },
-        { title:'منصات SaaS للمؤسسات',         desc:'منصات قابلة للتوسع وآمنة تنمو بسلاسة من MVP إلى ملايين المستخدمين.' },
-        { title:'تطبيقات الجوال',               desc:'تطبيقات متعددة المنصات بأداء نيتف لا تُفرّق بينها وبين التطبيقات الأصلية.' },
-        { title:'البيانات والتحليلات',           desc:'لوحات تحكم فورية وخطوط ML تعالج مليارات الأحداث بأقل من ثانية.' },
-        { title:'البنية السحابية',               desc:'بنية متعددة المناطق مصممة لأوقات استجابة عالمية أقل من 50ms.' },
-        { title:'التسويق الرقمي',               desc:'شراء الإعلانات البرمجية وتحسين معدل التحويل بعائد استثماري قابل للقياس.' },
+        { title: 'WebGL وتجارب ثلاثية الأبعاد', desc: 'واجهات ثلاثية الأبعاد مدعومة بالـ GPU تعمل بـ 60fps على أي جهاز.' },
+        { title: 'منصات SaaS للمؤسسات', desc: 'منصات قابلة للتوسع وآمنة تنمو بسلاسة من MVP إلى ملايين المستخدمين.' },
+        { title: 'تطبيقات الجوال', desc: 'تطبيقات متعددة المنصات بأداء نيتف لا تُفرّق بينها وبين التطبيقات الأصلية.' },
+        { title: 'البيانات والتحليلات', desc: 'لوحات تحكم فورية وخطوط ML تعالج مليارات الأحداث بأقل من ثانية.' },
+        { title: 'البنية السحابية', desc: 'بنية متعددة المناطق مصممة لأوقات استجابة عالمية أقل من 50ms.' },
+        { title: 'التسويق الرقمي', desc: 'شراء الإعلانات البرمجية وتحسين معدل التحويل بعائد استثماري قابل للقياس.' },
       ],
     },
     team: {
@@ -267,10 +272,10 @@ const T = {
       badge: 'فريق معتمد',
       secure: 'مشفّر وآمن',
       members: [
-        { name:'زياد أ.',  role:'المؤسس والمدير التقني',      exp:'14 سنة',   prev:'Ex-Google' },
-        { name:'لارا م.',  role:'مهندسة WebGL الرئيسية',      exp:'9 سنوات',  prev:'Ex-Unity'  },
-        { name:'طارق س.',  role:'رئيس التصميم',               exp:'11 سنة',   prev:'Ex-Apple'  },
-        { name:'نادية ر.', role:'نائبة رئيس النمو والإعلام',  exp:'8 سنوات',  prev:'Ex-Meta'   },
+        { name: 'زياد أ.', role: 'المؤسس والمدير التقني', exp: '14 سنة', prev: 'Ex-Google' },
+        { name: 'لارا م.', role: 'مهندسة WebGL الرئيسية', exp: '9 سنوات', prev: 'Ex-Unity' },
+        { name: 'طارق س.', role: 'رئيس التصميم', exp: '11 سنة', prev: 'Ex-Apple' },
+        { name: 'نادية ر.', role: 'نائبة رئيس النمو والإعلام', exp: '8 سنوات', prev: 'Ex-Meta' },
       ],
     },
     tech: {
@@ -278,19 +283,19 @@ const T = {
       h2: 'أقصى سرعة. أعلى دقة.',
       p: 'مكدسنا التقني مبني للمستقبل. كل أداة مختارة للأداء وقابلية التوسع وتجربة المطور.',
       items: [
-        { name:'WebGL و Three.js',         desc:'واجهات ثلاثية الأبعاد مدعومة GPU بمعدلات إطار نيتف على أي جهاز عالمياً.'   },
-        { name:'GSAP و Motion',            desc:'رسوم متحركة متقدمة وتفاعلات دقيقة مدفوعة بالإيماءات والتمرير السحري.'     },
-        { name:'React 19 و Next.js',       desc:'SSR فوري وهيدريشن RSC وعلامات Lighthouse 100/100 مثالية.'                  },
-        { name:'Node و Edge API',          desc:'نقاط نهاية موزعة عالمياً بأوقات استجابة أقل من 40ms وتوسع لا محدود.'        },
-        { name:'Rust و Go',                desc:'خدمات خلفية عالية الإنتاجية تتعامل مع ملايين الطلبات في الثانية بثبات.'     },
-        { name:'الذكاء الاصطناعي والـ ML', desc:'ميزات مدعومة بـ LLM ومحركات توصيات وتحليلات تنبؤية متقدمة.'                },
+        { name: 'WebGL و Three.js', desc: 'واجهات ثلاثية الأبعاد مدعومة GPU بمعدلات إطار نيتف على أي جهاز عالمياً.' },
+        { name: 'GSAP و Motion', desc: 'رسوم متحركة متقدمة وتفاعلات دقيقة مدفوعة بالإيماءات والتمرير السحري.' },
+        { name: 'React 19 و Next.js', desc: 'SSR فوري وهيدريشن RSC وعلامات Lighthouse 100/100 مثالية.' },
+        { name: 'Node و Edge API', desc: 'نقاط نهاية موزعة عالمياً بأوقات استجابة أقل من 40ms وتوسع لا محدود.' },
+        { name: 'Rust و Go', desc: 'خدمات خلفية عالية الإنتاجية تتعامل مع ملايين الطلبات في الثانية بثبات.' },
+        { name: 'الذكاء الاصطناعي والـ ML', desc: 'ميزات مدعومة بـ LLM ومحركات توصيات وتحليلات تنبؤية متقدمة.' },
       ],
     },
     portfolio: {
       tag: 'محفظة الأعمال الرقمية',
-      h2: '20 تحفة فنية. بلا تنازلات.',
-      filters: ['الكل','WebGL / ثلاثي','SaaS','تجارة','مالية','جوال'],
-      filterKeys: ['all','webgl','saas','commerce','finance','mobile'] as FilterKey[],
+      h2: '20 موقع حقيقي. نتائج حقيقية.',
+      filters: ['الكل', 'مطاعم', 'كافيهات', 'تعليم', 'شركات', 'قانوني وطبي'],
+      filterKeys: ['all', 'restaurant', 'cafe', 'education', 'corporate', 'legal'] as FilterKey[],
     },
     recognition: {
       tag: 'شهادات التميز',
@@ -315,9 +320,9 @@ const T = {
       ph3: 'صف رؤيتك بالتفصيل...',
       btn: 'أرسل ملخص المشروع',
       infoItems: [
-        { icon:'mail',  label:'البريد الإلكتروني', value:'hello@suvex.io'   },
-        { icon:'clock', label:'وقت الرد',           value:'خلال ساعتين'      },
-        { icon:'globe', label:'التوفر',             value:'عالمي · 24/7'     },
+        { icon: 'mail', label: 'البريد الإلكتروني', value: 'hello@suvex.io' },
+        { icon: 'clock', label: 'وقت الرد', value: 'خلال ساعتين' },
+        { icon: 'globe', label: 'التوفر', value: 'عالمي · 24/7' },
       ],
     },
   },
@@ -325,20 +330,20 @@ const T = {
 
 // ─── App ──────────────────────────────────────────────────────────────────────
 export default function App() {
-  const [currentSection, setCurrentSection]   = useState<number>(0);
-  const [mobileMenuOpen, setMobileMenuOpen]   = useState<boolean>(false);
-  const [lang, setLang]                        = useState<Lang>('en');
-  const [activeFilter, setActiveFilter]        = useState<FilterKey>('all');
-  const isAnimating     = useRef<boolean>(false);
-  const touchStartY     = useRef<number>(0);
-  const portfolioGridRef= useRef<HTMLDivElement | null>(null);
+  const [currentSection, setCurrentSection] = useState<number>(0);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
+  const [lang, setLang] = useState<Lang>('en');
+  const [activeFilter, setActiveFilter] = useState<FilterKey>('all');
+  const isAnimating = useRef<boolean>(false);
+  const touchStartY = useRef<number>(0);
+  const portfolioGridRef = useRef<HTMLDivElement | null>(null);
 
   const t = T[lang];
 
   // ── Filtered projects ──
   const filteredProjects = useMemo(() =>
     activeFilter === 'all' ? PORTFOLIO_ITEMS : PORTFOLIO_ITEMS.filter(p => p.category === activeFilter),
-  [activeFilter]);
+    [activeFilter]);
 
   // ── Navigation ──
   useEffect(() => {
@@ -356,7 +361,7 @@ export default function App() {
       if (currentSection === 5 && portfolioGridRef.current) {
         const grid = portfolioGridRef.current;
         if (grid.contains(e.target as Node)) {
-          const atTop    = grid.scrollTop <= 0;
+          const atTop = grid.scrollTop <= 0;
           const atBottom = grid.scrollTop + grid.clientHeight >= grid.scrollHeight - 2;
           if ((e.deltaY > 0 && !atBottom) || (e.deltaY < 0 && !atTop)) return;
         }
@@ -367,26 +372,26 @@ export default function App() {
     };
 
     const handleTouchStart = (e: TouchEvent) => { touchStartY.current = e.touches[0].clientY; };
-    const handleTouchEnd   = (e: TouchEvent) => {
+    const handleTouchEnd = (e: TouchEvent) => {
       const delta = touchStartY.current - e.changedTouches[0].clientY;
       if (Math.abs(delta) < 50) return;
       navigate(delta > 0 ? 1 : -1);
     };
 
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (['ArrowDown','PageDown','Space'].includes(e.key)) { e.preventDefault(); navigate(1); }
-      else if (['ArrowUp','PageUp'].includes(e.key)) { e.preventDefault(); navigate(-1); }
+      if (['ArrowDown', 'PageDown', 'Space'].includes(e.key)) { e.preventDefault(); navigate(1); }
+      else if (['ArrowUp', 'PageUp'].includes(e.key)) { e.preventDefault(); navigate(-1); }
     };
 
-    window.addEventListener('wheel',      handleWheel,      { passive: false });
+    window.addEventListener('wheel', handleWheel, { passive: false });
     window.addEventListener('touchstart', handleTouchStart);
-    window.addEventListener('touchend',   handleTouchEnd);
-    window.addEventListener('keydown',    handleKeyDown);
+    window.addEventListener('touchend', handleTouchEnd);
+    window.addEventListener('keydown', handleKeyDown);
     return () => {
-      window.removeEventListener('wheel',      handleWheel);
+      window.removeEventListener('wheel', handleWheel);
       window.removeEventListener('touchstart', handleTouchStart);
-      window.removeEventListener('touchend',   handleTouchEnd);
-      window.removeEventListener('keydown',    handleKeyDown);
+      window.removeEventListener('touchend', handleTouchEnd);
+      window.removeEventListener('keydown', handleKeyDown);
     };
   }, [currentSection]);
 
@@ -666,7 +671,7 @@ export default function App() {
                 transition={{ repeat: Infinity, duration: 3.5, ease: 'easeInOut' }}
                 className="absolute -top-4 -right-4 flex flex-col items-center justify-center w-16 h-16 rounded-full bg-[#155dfc] shadow-[0_0_30px_rgba(21,93,252,0.8)] border-2 border-blue-300/30"
               >
-                <span className="text-white font-black text-[10px] font-mono leading-tight text-center">#1<br/>CEO</span>
+                <span className="text-white font-black text-[10px] font-mono leading-tight text-center">#1<br />CEO</span>
               </motion.div>
 
               {/* Name + title BELOW image */}
@@ -712,11 +717,11 @@ export default function App() {
                 {/* Achievement pills */}
                 <div className={`flex flex-wrap gap-2 mb-7 ${lang === 'ar' ? 'flex-row-reverse' : ''}`}>
                   {[
-                    { label: 'Ex-Google Engineer', color: '#06b6d4'  },
-                    { label: '14+ Yrs Experience', color: '#155dfc'  },
-                    { label: '$1.2B+ Revenue',      color: '#8b5cf6'  },
-                    { label: 'Forbes 30 Under 30',  color: '#f59e0b'  },
-                    { label: '200+ Shipped',         color: '#10b981'  },
+                    { label: 'Ex-Google Engineer', color: '#06b6d4' },
+                    { label: '14+ Yrs Experience', color: '#155dfc' },
+                    { label: '$1.2B+ Revenue', color: '#8b5cf6' },
+                    { label: 'Forbes 30 Under 30', color: '#f59e0b' },
+                    { label: '200+ Shipped', color: '#10b981' },
                   ].map((p, i) => (
                     <span key={i} className="text-[11px] font-bold font-mono px-3 py-1.5 rounded-full border"
                       style={{ color: p.color, borderColor: `${p.color}50`, background: `${p.color}14` }}>
@@ -728,10 +733,10 @@ export default function App() {
                 {/* 4 key stats row */}
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 w-full">
                   {[
-                    { val: '50+',   label: lang === 'ar' ? 'عضو فريق' : 'Team Members' },
-                    { val: '200+',  label: lang === 'ar' ? 'مشروع' : 'Projects Built' },
+                    { val: '50+', label: lang === 'ar' ? 'عضو فريق' : 'Team Members' },
+                    { val: '200+', label: lang === 'ar' ? 'مشروع' : 'Projects Built' },
                     { val: '$1.2B', label: lang === 'ar' ? 'إيرادات' : 'Revenue Gen.' },
-                    { val: '50+',   label: lang === 'ar' ? 'دولة' : 'Countries' },
+                    { val: '50+', label: lang === 'ar' ? 'دولة' : 'Countries' },
                   ].map((s, i) => (
                     <motion.div
                       key={i}
@@ -820,12 +825,12 @@ export default function App() {
                     className={`group relative rounded-xl border border-white/8 bg-[#030b20]/80 backdrop-blur-md p-4 hover:border-white/20 transition-all duration-300 cursor-default overflow-hidden min-h-[170px] flex flex-col justify-between ${lang === 'ar' ? 'text-right' : ''}`}>
                     {/* Background Image */}
                     <div className="absolute inset-0 z-0 overflow-hidden">
-                      <img 
-                        src={item.image} 
-                        alt={item.title} 
+                      <img
+                        src={item.image}
+                        alt={item.title}
                         loading="lazy"
                         decoding="async"
-                        className="w-full h-full object-cover opacity-20 group-hover:opacity-45 group-hover:scale-105 transition-all duration-500" 
+                        className="w-full h-full object-cover opacity-20 group-hover:opacity-45 group-hover:scale-105 transition-all duration-500"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-[#000511] via-[#000511]/70 to-[#000511]/30" />
                     </div>
@@ -842,7 +847,7 @@ export default function App() {
                         </div>
                         <span className="text-[10px] font-mono text-gray-400 bg-black/40 border border-white/10 px-2 py-0.5 rounded">{item.year}</span>
                       </div>
-                      
+
                       <div>
                         <h3 className="text-white font-bold text-sm mb-1 leading-tight group-hover:text-blue-300 transition-colors duration-300">{item.title}</h3>
                         <p className="text-gray-300 text-[11px] leading-relaxed mb-2 line-clamp-2 group-hover:line-clamp-none transition-all duration-300">{item.desc}</p>
@@ -923,7 +928,7 @@ export default function App() {
               {[...TESTIMONIALS_ROW1, ...TESTIMONIALS_ROW1].map((item, i) => (
                 <div key={i} className="flex-shrink-0 w-80 p-5 rounded-2xl border border-white/6 bg-[#030b20]/60 backdrop-blur-xl">
                   <div className="flex text-[#facc15] mb-3">
-                    {[1,2,3,4,5].map(s => <Star key={s} className="w-3 h-3 fill-current" />)}
+                    {[1, 2, 3, 4, 5].map(s => <Star key={s} className="w-3 h-3 fill-current" />)}
                   </div>
                   <p className="text-gray-300 text-xs leading-relaxed mb-4 line-clamp-3 italic">"{item.text}"</p>
                   <div className="flex items-center gap-3">
@@ -944,7 +949,7 @@ export default function App() {
               {[...TESTIMONIALS_ROW2, ...TESTIMONIALS_ROW2].map((item, i) => (
                 <div key={i} className="flex-shrink-0 w-80 p-5 rounded-2xl border border-white/6 bg-[#030b20]/60 backdrop-blur-xl">
                   <div className="flex text-[#facc15] mb-3">
-                    {[1,2,3,4,5].map(s => <Star key={s} className="w-3 h-3 fill-current" />)}
+                    {[1, 2, 3, 4, 5].map(s => <Star key={s} className="w-3 h-3 fill-current" />)}
                   </div>
                   <p className="text-gray-300 text-xs leading-relaxed mb-4 line-clamp-3 italic">"{item.text}"</p>
                   <div className="flex items-center gap-3">
@@ -982,8 +987,8 @@ export default function App() {
                   dir={t.dir}
                   onSubmit={e => {
                     e.preventDefault();
-                    const nameVal  = (document.getElementById('wa-name')  as HTMLInputElement)?.value?.trim();
-                    const msgVal   = (document.getElementById('wa-msg')   as HTMLTextAreaElement)?.value?.trim();
+                    const nameVal = (document.getElementById('wa-name') as HTMLInputElement)?.value?.trim();
+                    const msgVal = (document.getElementById('wa-msg') as HTMLTextAreaElement)?.value?.trim();
                     if (!nameVal || !msgVal) return;
                     const text = encodeURIComponent(
                       `مرحباً، أنا ${nameVal}.\n\n${msgVal}`
@@ -1026,7 +1031,7 @@ export default function App() {
                   >
                     {/* WhatsApp Icon SVG */}
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
-                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
                     </svg>
                     {lang === 'ar' ? 'أرسل على واتساب' : 'Send via WhatsApp'}
                   </button>
@@ -1045,7 +1050,7 @@ export default function App() {
                 <div className={`flex items-center gap-4 ${lang === 'ar' ? 'flex-row-reverse' : ''}`}>
                   <div className="w-10 h-10 rounded-xl bg-[#25d366]/10 border border-[#25d366]/30 flex items-center justify-center flex-shrink-0">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#25d366" className="w-4 h-4">
-                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
                     </svg>
                   </div>
                   <div className={lang === 'ar' ? 'text-right' : ''}>
