@@ -625,67 +625,117 @@ export default function App() {
           </div>
         </section>
 
-        {/* ━━━━ SECTION 3 · TEAM ━━━━ */}
-        <section className="h-screen w-full flex items-center px-6 md:px-16 lg:px-24 relative overflow-hidden">
-          <div className={`max-w-7xl w-full mx-auto flex flex-col lg:flex-row items-center gap-14 pt-16 ${lang === 'ar' ? 'lg:flex-row-reverse' : ''}`}>
+        {/* ━━━━ SECTION 3 · TEAM / CEO ━━━━ */}
+        <section className="h-screen w-full flex items-center px-6 md:px-10 lg:px-16 relative overflow-hidden">
+          <div className={`max-w-7xl w-full mx-auto flex flex-col lg:flex-row items-center gap-10 pt-16 ${lang === 'ar' ? 'lg:flex-row-reverse' : ''}`}>
 
-            {/* Left */}
+            {/* ── CEO Portrait Card ── */}
+            <motion.div
+              initial={{ opacity: 0, x: lang === 'ar' ? 60 : -60 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: false }}
+              transition={{ duration: 0.9 }}
+              className="flex-shrink-0 relative"
+            >
+              {/* Glow rings */}
+              <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-[#155dfc]/30 to-blue-400/10 blur-2xl scale-110 pointer-events-none" />
+              <div className="absolute -inset-[2px] rounded-3xl bg-gradient-to-br from-[#155dfc] via-blue-400/50 to-transparent opacity-60 pointer-events-none" />
+
+              {/* Portrait */}
+              <div className="relative w-[220px] md:w-[260px] lg:w-[300px] rounded-3xl overflow-hidden border border-blue-500/30 shadow-[0_0_60px_rgba(21,93,252,0.35)]">
+                <img
+                  src="/ceo.jpg"
+                  alt="Ziad Ayman – CEO & Founder of SUVEX"
+                  className="w-full h-[300px] md:h-[350px] lg:h-[400px] object-cover object-top"
+                />
+                {/* Bottom gradient overlay */}
+                <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#000511] via-[#000511]/60 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-4">
+                  <p className="text-white font-bold text-sm">Ziad Ayman</p>
+                  <p className="text-[#3b82f6] text-[11px] font-semibold font-mono uppercase tracking-wider">Founder & CEO · SUVEX</p>
+                </div>
+              </div>
+
+              {/* Floating badge */}
+              <motion.div
+                animate={{ y: [0, -6, 0] }}
+                transition={{ repeat: Infinity, duration: 3, ease: 'easeInOut' }}
+                className="absolute -top-3 -right-3 bg-[#155dfc] text-white text-[10px] font-bold font-mono px-3 py-1.5 rounded-xl shadow-[0_0_20px_rgba(21,93,252,0.7)] border border-blue-400/40"
+              >
+                #1 VISIONARY
+              </motion.div>
+            </motion.div>
+
+            {/* ── CEO Info ── */}
             <div className={`flex-1 flex flex-col ${lang === 'ar' ? 'items-end text-right' : 'items-start'}`}>
-              <motion.div initial={{ opacity: 0, x: lang === 'ar' ? 50 : -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: false }} transition={{ duration: 0.8 }}>
-                <div className={`flex items-center gap-2 mb-4 text-[#155dfc] ${lang === 'ar' ? 'flex-row-reverse' : ''}`}>
+              <motion.div
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false }}
+                transition={{ duration: 0.8, delay: 0.1 }}
+                className="w-full"
+              >
+                <div className={`flex items-center gap-2 mb-3 text-[#155dfc] ${lang === 'ar' ? 'flex-row-reverse' : ''}`}>
                   <Users className="w-4 h-4" />
                   <span className="uppercase tracking-[0.25em] text-xs font-bold font-mono">{t.team.tag}</span>
                 </div>
-                <h2 className="font-display text-3xl sm:text-5xl lg:text-[4rem] font-bold leading-[1.1] tracking-tight mb-6">{t.team.h2}</h2>
-                <p className="text-gray-400 text-base md:text-lg max-w-[34rem] leading-[1.7] mb-8 font-light">{t.team.p}</p>
-                {/* Stats */}
-                <div className={`grid grid-cols-2 gap-4 w-full max-w-sm ${lang === 'ar' ? 'mr-auto' : 'ml-0'}`}>
+
+                <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold leading-[1.1] tracking-tight mb-3">
+                  {lang === 'ar' ? 'رؤية تُبنى بأيدٍ تُتقن الصنعة.' : 'Vision. Craft.\nDomination.'}
+                </h2>
+
+                {/* CEO Quote */}
+                <div className="relative mb-5 mt-4">
+                  <div className="absolute left-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-[#155dfc] to-blue-400/20 rounded-full" />
+                  <blockquote className={`pl-5 text-gray-300 text-sm leading-[1.75] italic font-light ${lang === 'ar' ? 'pr-5 pl-0 border-r-[3px] border-l-0' : ''}`}>
+                    {lang === 'ar'
+                      ? '"أنا مش هنا أبني شركة — أنا هنا أبني الجيل القادم من الإنترنت. كل منصة نبنيها لازم تكون تحفة فنية ومكينة ربح في نفس الوقت."'
+                      : '"I\'m not here to build a company — I\'m here to engineer the next generation of the internet. Every platform we ship must be a masterpiece and a money machine simultaneously."'}
+                  </blockquote>
+                </div>
+
+                {/* Achievement pills */}
+                <div className={`flex flex-wrap gap-2 mb-5 ${lang === 'ar' ? 'flex-row-reverse' : ''}`}>
                   {[
-                    { val: '50+', label: t.team.stat1 },
-                    { val: '200+', label: t.team.stat2 },
-                    { val: '10+', label: t.team.stat3 },
-                    { val: '18', label: t.team.stat4 },
-                  ].map((s, i) => (
-                    <div key={i} className={`p-4 rounded-xl border border-white/5 bg-[#030b20]/50 backdrop-blur-xl ${lang === 'ar' ? 'text-right' : ''}`}>
-                      <span className="block font-display text-2xl font-bold text-white mb-0.5">{s.val}</span>
-                      <span className="text-[#3b82f6] text-[11px] font-semibold uppercase tracking-wider">{s.label}</span>
-                    </div>
+                    { label: lang === 'ar' ? 'Ex-Google Engineer' : 'Ex-Google Engineer',  color: '#06b6d4' },
+                    { label: lang === 'ar' ? '14 سنة خبرة' : '14 Yrs Experience',          color: '#155dfc' },
+                    { label: lang === 'ar' ? '+$1.2B إيرادات' : '$1.2B+ Revenue Generated', color: '#8b5cf6' },
+                    { label: lang === 'ar' ? '+200 مشروع' : '200+ Projects Shipped',        color: '#10b981' },
+                  ].map((p, i) => (
+                    <span key={i} className="text-[11px] font-semibold font-mono px-3 py-1 rounded-full border" style={{ color: p.color, borderColor: `${p.color}40`, background: `${p.color}12` }}>
+                      {p.label}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Sub-team grid */}
+                <div className={`grid grid-cols-2 sm:grid-cols-4 gap-3 w-full ${lang === 'ar' ? 'direction-rtl' : ''}`}>
+                  {t.team.members.map((member, i) => (
+                    <motion.div
+                      key={i}
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: false }}
+                      transition={{ duration: 0.5, delay: 0.2 + i * 0.07 }}
+                      className={`p-3 rounded-xl border border-white/5 bg-[#030b20]/50 backdrop-blur-xl hover:border-blue-500/25 transition-all ${lang === 'ar' ? 'text-right' : ''}`}
+                    >
+                      <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-[#155dfc] to-blue-400 flex items-center justify-center text-white font-bold text-xs mb-2 shadow-[0_0_15px_rgba(21,93,252,0.3)]">
+                        {member.name.split(' ').map((n: string) => n[0]).join('')}
+                      </div>
+                      <h4 className="text-white font-bold text-[11px] mb-0.5 leading-tight">{member.name}</h4>
+                      <p className="text-gray-500 text-[10px] mb-1.5">{member.role}</p>
+                      <span className="text-[9px] px-1.5 py-0.5 rounded bg-blue-500/10 border border-blue-500/20 text-blue-400 font-mono">{member.prev}</span>
+                    </motion.div>
                   ))}
                 </div>
               </motion.div>
             </div>
 
-            {/* Right – Team Member Cards */}
-            <div className="flex-1 hidden lg:grid grid-cols-2 gap-4 max-w-md">
-              {t.team.members.map((member, i) => (
-                <motion.div key={i} initial={{ opacity: 0, scale: 0.85 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: false }} transition={{ duration: 0.7, delay: i * 0.1 }}
-                  className="p-5 rounded-2xl border border-white/5 bg-[#030b20]/60 backdrop-blur-xl hover:border-blue-500/25 hover:bg-[#030b20]/80 transition-all group">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#155dfc] to-blue-400 flex items-center justify-center text-white font-bold text-sm mb-4 shadow-[0_0_20px_rgba(21,93,252,0.35)]">
-                    {member.name.split(' ').map(n => n[0]).join('')}
-                  </div>
-                  <h4 className="text-white font-bold text-sm mb-0.5">{member.name}</h4>
-                  <p className="text-gray-400 text-xs mb-2">{member.role}</p>
-                  <div className={`flex items-center gap-2 ${lang === 'ar' ? 'flex-row-reverse' : ''}`}>
-                    <span className="text-[10px] px-2 py-0.5 rounded bg-blue-500/10 border border-blue-500/20 text-blue-400 font-mono">{member.prev}</span>
-                    <span className="text-[10px] text-gray-500">{member.exp}</span>
-                  </div>
-                </motion.div>
-              ))}
-              {/* Shield Badge */}
-              <div className="col-span-2 p-5 rounded-2xl border border-blue-500/15 bg-[#155dfc]/8 backdrop-blur-xl flex items-center gap-4">
-                <div className="w-10 h-10 rounded-lg bg-[#155dfc]/20 border border-blue-500/30 flex items-center justify-center flex-shrink-0">
-                  <Shield className="w-5 h-5 text-blue-400" />
-                </div>
-                <div>
-                  <p className="text-white font-bold text-sm">{t.team.badge}</p>
-                  <p className="text-gray-500 text-[11px] font-mono">{t.team.secure}</p>
-                </div>
-              </div>
-            </div>
           </div>
         </section>
 
         {/* ━━━━ SECTION 4 · TECH ━━━━ */}
+
         <section className="h-screen w-full flex items-center justify-center px-6 md:px-16 lg:px-24 overflow-hidden">
           <div className="max-w-7xl w-full mx-auto flex flex-col items-center pt-16">
             <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false }} transition={{ duration: 0.8 }} className="text-center mb-12">
@@ -901,60 +951,123 @@ export default function App() {
             </motion.div>
 
             <div className={`flex flex-col lg:flex-row gap-8 items-start justify-center ${lang === 'ar' ? 'lg:flex-row-reverse' : ''}`}>
-              {/* Form */}
+              {/* WhatsApp Form */}
               <motion.div initial={{ opacity: 0, scale: 0.97 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: false }} transition={{ duration: 0.8 }}
                 className="w-full lg:max-w-md p-7 rounded-2xl border border-white/10 bg-[#030b20]/60 backdrop-blur-xl shadow-2xl relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 blur-[50px] rounded-full pointer-events-none" />
-                <form onSubmit={e => e.preventDefault()} className={`flex flex-col gap-4 relative z-10 ${lang === 'ar' ? 'text-right' : ''}`} dir={t.dir}>
-                  {[
-                    { id:'name-input',  label:t.contact.label1, type:'text',  ph:t.contact.ph1 },
-                    { id:'email-input', label:t.contact.label2, type:'email', ph:t.contact.ph2 },
-                  ].map(f => (
-                    <div key={f.id} className="flex flex-col gap-1.5">
-                      <label htmlFor={f.id} className="text-[10px] uppercase tracking-widest text-[#3b82f6] font-mono font-semibold">{f.label}</label>
-                      <input id={f.id} type={f.type} placeholder={f.ph}
-                        className="w-full h-11 bg-white/5 border border-white/10 rounded-lg px-4 text-white text-sm placeholder:text-gray-600 focus:outline-none focus:border-[#155dfc] focus:ring-1 focus:ring-[#155dfc] transition-all" />
-                    </div>
-                  ))}
+                <div className="absolute top-0 right-0 w-32 h-32 bg-green-500/10 blur-[50px] rounded-full pointer-events-none" />
+                <form
+                  className={`flex flex-col gap-4 relative z-10 ${lang === 'ar' ? 'text-right' : ''}`}
+                  dir={t.dir}
+                  onSubmit={e => {
+                    e.preventDefault();
+                    const nameVal  = (document.getElementById('wa-name')  as HTMLInputElement)?.value?.trim();
+                    const msgVal   = (document.getElementById('wa-msg')   as HTMLTextAreaElement)?.value?.trim();
+                    if (!nameVal || !msgVal) return;
+                    const text = encodeURIComponent(
+                      `مرحباً، أنا ${nameVal}.\n\n${msgVal}`
+                    );
+                    window.open(`https://wa.me/201508997798?text=${text}`, '_blank');
+                  }}
+                >
+                  {/* Name */}
                   <div className="flex flex-col gap-1.5">
-                    <label htmlFor="msg-input" className="text-[10px] uppercase tracking-widest text-[#3b82f6] font-mono font-semibold">{t.contact.label3}</label>
-                    <textarea id="msg-input" rows={4} placeholder={t.contact.ph3}
-                      className="w-full bg-white/5 border border-white/10 rounded-lg p-4 text-white text-sm placeholder:text-gray-600 focus:outline-none focus:border-[#155dfc] focus:ring-1 focus:ring-[#155dfc] transition-all resize-none" />
+                    <label htmlFor="wa-name" className="text-[10px] uppercase tracking-widest text-[#25d366] font-mono font-semibold">
+                      {t.contact.label1}
+                    </label>
+                    <input
+                      id="wa-name"
+                      type="text"
+                      placeholder={t.contact.ph1}
+                      required
+                      className="w-full h-11 bg-white/5 border border-white/10 rounded-lg px-4 text-white text-sm placeholder:text-gray-600 focus:outline-none focus:border-[#25d366] focus:ring-1 focus:ring-[#25d366] transition-all"
+                    />
                   </div>
-                  <button type="submit"
-                    className="w-full h-12 mt-1 bg-[#155dfc] hover:bg-[#1653e8] text-white font-bold text-sm rounded-lg transition-all shadow-[0_0_25px_rgba(21,93,252,0.45)] hover:shadow-[0_0_40px_rgba(21,93,252,0.65)] cursor-pointer">
-                    {t.contact.btn}
+
+                  {/* Message */}
+                  <div className="flex flex-col gap-1.5">
+                    <label htmlFor="wa-msg" className="text-[10px] uppercase tracking-widest text-[#25d366] font-mono font-semibold">
+                      {t.contact.label3}
+                    </label>
+                    <textarea
+                      id="wa-msg"
+                      rows={5}
+                      placeholder={t.contact.ph3}
+                      required
+                      className="w-full bg-white/5 border border-white/10 rounded-lg p-4 text-white text-sm placeholder:text-gray-600 focus:outline-none focus:border-[#25d366] focus:ring-1 focus:ring-[#25d366] transition-all resize-none"
+                    />
+                  </div>
+
+                  {/* WhatsApp Submit Button */}
+                  <button
+                    type="submit"
+                    className="w-full h-13 mt-1 flex items-center justify-center gap-3 bg-[#25d366] hover:bg-[#1ebe5a] text-white font-bold text-sm rounded-lg transition-all shadow-[0_0_25px_rgba(37,211,102,0.4)] hover:shadow-[0_0_45px_rgba(37,211,102,0.65)] cursor-pointer group"
+                  >
+                    {/* WhatsApp Icon SVG */}
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
+                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                    </svg>
+                    {lang === 'ar' ? 'أرسل على واتساب' : 'Send via WhatsApp'}
                   </button>
+
+                  <p className={`text-gray-600 text-[10px] font-mono text-center`}>
+                    {lang === 'ar' ? 'سيفتح تطبيق واتساب تلقائياً برسالتك' : 'WhatsApp will open with your message pre-filled'}
+                  </p>
                 </form>
               </motion.div>
 
               {/* Info */}
               <motion.div initial={{ opacity: 0, x: lang === 'ar' ? -30 : 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: false }} transition={{ duration: 0.8, delay: 0.15 }}
                 className={`flex flex-col gap-5 lg:pt-4 ${lang === 'ar' ? 'items-end' : 'items-start'}`}>
-                {t.contact.infoItems.map((info, i) => (
-                  <div key={i} className={`flex items-center gap-4 ${lang === 'ar' ? 'flex-row-reverse' : ''}`}>
-                    <div className="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0">
-                      {info.icon === 'mail'  && <Mail  className="w-4 h-4 text-blue-400" />}
-                      {info.icon === 'clock' && <Clock className="w-4 h-4 text-blue-400" />}
-                      {info.icon === 'globe' && <Globe className="w-4 h-4 text-blue-400" />}
-                    </div>
-                    <div className={lang === 'ar' ? 'text-right' : ''}>
-                      <p className="text-gray-500 text-xs mb-0.5">{info.label}</p>
-                      <p className="text-white font-semibold text-sm">{info.value}</p>
-                    </div>
+
+                {/* WhatsApp contact item */}
+                <div className={`flex items-center gap-4 ${lang === 'ar' ? 'flex-row-reverse' : ''}`}>
+                  <div className="w-10 h-10 rounded-xl bg-[#25d366]/10 border border-[#25d366]/30 flex items-center justify-center flex-shrink-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#25d366" className="w-4 h-4">
+                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                    </svg>
                   </div>
-                ))}
+                  <div className={lang === 'ar' ? 'text-right' : ''}>
+                    <p className="text-gray-500 text-xs mb-0.5">{lang === 'ar' ? 'واتساب مباشر' : 'Direct WhatsApp'}</p>
+                    <p className="text-white font-semibold text-sm">+20 150 899 7798</p>
+                  </div>
+                </div>
+
+                {/* Clock */}
+                <div className={`flex items-center gap-4 ${lang === 'ar' ? 'flex-row-reverse' : ''}`}>
+                  <div className="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0">
+                    <Clock className="w-4 h-4 text-blue-400" />
+                  </div>
+                  <div className={lang === 'ar' ? 'text-right' : ''}>
+                    <p className="text-gray-500 text-xs mb-0.5">{lang === 'ar' ? 'وقت الرد' : 'Response Time'}</p>
+                    <p className="text-white font-semibold text-sm">{lang === 'ar' ? 'خلال ساعتين' : 'Within 2 hours'}</p>
+                  </div>
+                </div>
+
+                {/* Globe */}
+                <div className={`flex items-center gap-4 ${lang === 'ar' ? 'flex-row-reverse' : ''}`}>
+                  <div className="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0">
+                    <Globe className="w-4 h-4 text-blue-400" />
+                  </div>
+                  <div className={lang === 'ar' ? 'text-right' : ''}>
+                    <p className="text-gray-500 text-xs mb-0.5">{lang === 'ar' ? 'التوفر' : 'Availability'}</p>
+                    <p className="text-white font-semibold text-sm">{lang === 'ar' ? 'عالمي · 24/7' : 'Global · 24/7'}</p>
+                  </div>
+                </div>
 
                 {/* Trust indicators */}
-                <div className={`mt-4 p-5 rounded-2xl border border-white/5 bg-[#030b20]/40 backdrop-blur-xl max-w-xs ${lang === 'ar' ? 'text-right' : ''}`}>
+                <div className={`mt-4 p-5 rounded-2xl border border-[#25d366]/15 bg-[#25d366]/5 backdrop-blur-xl max-w-xs ${lang === 'ar' ? 'text-right' : ''}`}>
                   <p className="text-gray-400 text-xs leading-relaxed">
-                    Trusted by <span className="text-white font-semibold">200+ companies</span> across <span className="text-white font-semibold">50+ countries</span>. All projects are protected under strict NDA.
+                    {lang === 'ar'
+                      ? <>موثوق من <span className="text-white font-semibold">+200 شركة</span> في <span className="text-white font-semibold">+50 دولة</span>. جميع المشاريع محمية بـ NDA صارم.</>
+                      : <>Trusted by <span className="text-white font-semibold">200+ companies</span> across <span className="text-white font-semibold">50+ countries</span>. All projects protected under strict NDA.</>
+                    }
                   </p>
                 </div>
               </motion.div>
             </div>
           </div>
         </section>
+
 
       </motion.div>
     </div>
