@@ -415,7 +415,7 @@ export default function App() {
 
           {/* Logo */}
           <div className="relative w-24 md:w-36 h-full cursor-pointer flex-shrink-0" onClick={() => navTo(0)}>
-            <img src="/logo.png" alt="SUVEX" className="absolute left-0 top-1/2 -translate-y-1/2 w-full h-auto object-contain drop-shadow-[0_0_15px_rgba(21,93,252,0.3)] scale-[1.35] origin-left" />
+            <img src="/logo.webp" alt="SUVEX" decoding="async" className="absolute left-0 top-1/2 -translate-y-1/2 w-full h-auto object-contain drop-shadow-[0_0_15px_rgba(21,93,252,0.3)] scale-[1.35] origin-left" />
           </div>
 
           {/* Desktop Nav */}
@@ -468,7 +468,7 @@ export default function App() {
             transition={{ type: 'tween', duration: 0.3 }}
             className="fixed inset-0 z-50 bg-[#000511]/98 backdrop-blur-2xl flex flex-col p-8">
             <div className={`flex justify-between items-center mb-10 ${lang === 'ar' ? 'flex-row-reverse' : ''}`}>
-              <img src="/logo.png" alt="SUVEX" className="w-28 h-auto object-contain" />
+              <img src="/logo.webp" alt="SUVEX" decoding="async" className="w-28 h-auto object-contain" />
               <button onClick={() => setMobileMenuOpen(false)} className="text-gray-300 hover:text-white cursor-pointer" aria-label="Close">
                 <X className="w-7 h-7" />
               </button>
@@ -646,6 +646,8 @@ export default function App() {
                 <img
                   src="/ceo.jpg"
                   alt="Ziad Ayman – CEO & Founder of SUVEX"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-[300px] md:h-[350px] lg:h-[400px] object-cover object-top"
                 />
                 {/* Bottom gradient overlay */}
@@ -803,6 +805,8 @@ export default function App() {
                       <img 
                         src={item.image} 
                         alt={item.title} 
+                        loading="lazy"
+                        decoding="async"
                         className="w-full h-full object-cover opacity-20 group-hover:opacity-45 group-hover:scale-105 transition-all duration-500" 
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-[#000511] via-[#000511]/70 to-[#000511]/30" />

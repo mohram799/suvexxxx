@@ -40,10 +40,10 @@ export default function InteractiveCanvas({ currentSection }: InteractiveCanvasP
     });
   }, [currentSection]);
 
-  // Preload background.png once
+  // Preload background.webp once (optimized, 149KB vs 1.8MB)
   useEffect(() => {
     const img = new Image();
-    img.src = '/background.png';
+    img.src = '/background.webp';
     img.onload = () => {
       bgImageRef.current = img;
       bgLoadedRef.current = true;
