@@ -1,0 +1,121 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "installCommand": "npm install",
+  "framework": null,
+  "rewrites": [
+    {
+      "source": "/services/web-development",
+      "destination": "/services/web-development/index.html"
+    },
+    {
+      "source": "/services/mobile-app-development",
+      "destination": "/services/mobile-app-development/index.html"
+    },
+    {
+      "source": "/services/erp-crm-systems",
+      "destination": "/services/erp-crm-systems/index.html"
+    },
+    {
+      "source": "/services/ui-ux-design",
+      "destination": "/services/ui-ux-design/index.html"
+    },
+    {
+      "source": "/services/ai-integration",
+      "destination": "/services/ai-integration/index.html"
+    },
+    {
+      "source": "/services/digital-marketing-seo",
+      "destination": "/services/digital-marketing-seo/index.html"
+    },
+    {
+      "source": "/cairo",
+      "destination": "/cairo/index.html"
+    },
+    {
+      "source": "/egypt",
+      "destination": "/egypt/index.html"
+    },
+    {
+      "source": "/alexandria",
+      "destination": "/alexandria/index.html"
+    },
+    {
+      "source": "/uae",
+      "destination": "/uae/index.html"
+    },
+    {
+      "source": "/saudi-arabia",
+      "destination": "/saudi-arabia/index.html"
+    },
+    {
+      "source": "/best-web-development-company-egypt",
+      "destination": "/best-web-development-company-egypt/index.html"
+    },
+    {
+      "source": "/ai-search-optimization-egypt",
+      "destination": "/ai-search-optimization-egypt/index.html"
+    },
+    {
+      "source": "/blog",
+      "destination": "/blog/index.html"
+    },
+    {
+      "source": "/blog/custom-software-vs-saas-off-the-shelf",
+      "destination": "/blog/custom-software-vs-saas-off-the-shelf/index.html"
+    },
+    {
+      "source": "/blog/implementing-ai-chatbots-for-business",
+      "destination": "/blog/implementing-ai-chatbots-for-business/index.html"
+    },
+    {
+      "source": "/blog/optimizing-core-web-vitals-performance",
+      "destination": "/blog/optimizing-core-web-vitals-performance/index.html"
+    },
+    {
+      "source": "/blog/topical-authority-content-silo-guide",
+      "destination": "/blog/topical-authority-content-silo-guide/index.html"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "DENY" },
+        { "key": "X-XSS-Protection", "value": "1; mode=block" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" }
+      ]
+    },
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/(.*)\\.webp",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=86400, stale-while-revalidate=604800" }
+      ]
+    },
+    {
+      "source": "/sitemap(.*)\\.xml",
+      "headers": [
+        { "key": "Content-Type", "value": "application/xml; charset=utf-8" },
+        { "key": "Cache-Control", "value": "public, max-age=3600" }
+      ]
+    },
+    {
+      "source": "/robots.txt",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=86400" }
+      ]
+    }
+  ]
+}

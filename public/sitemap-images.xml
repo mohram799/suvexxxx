@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <url>
+    <loc>https://suvex.io/</loc>
+    <image:image>
+      <image:loc>https://suvex.io/logo.png</image:loc>
+      <image:title>SUVEX Logo - سوفيكس</image:title>
+      <image:caption>شعار شركة سوفيكس SUVEX للتصميم والبرمجة</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://suvex.io/ceo.jpg</image:loc>
+      <image:title>زياد أيمن - مؤسس ومدير سوفيكس SUVEX</image:title>
+      <image:caption>زياد أيمن - Ziad Ayman - مؤسس ومدير تنفيذي لشركة سوفيكس SUVEX</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://suvex.io/project_restaurant.jpg</image:loc>
+      <image:title>تصميم موقع مطعم احترافي - سوفيكس</image:title>
+      <image:caption>مثال على موقع مطعم راقٍ مع نظام حجوزات أونلاين من تصميم سوفيكس SUVEX</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://suvex.io/project_oriental.jpg</image:loc>
+      <image:title>تصميم موقع مطعم شرقي - سوفيكس</image:title>
+      <image:caption>موقع مطعم شرقي مع قائمة طعام تفاعلية من تصميم سوفيكس</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://suvex.io/project_corporate.jpg</image:loc>
+      <image:title>تصميم موقع شركة احترافي - سوفيكس</image:title>
+      <image:caption>موقع شركة استثمار احترافي من تصميم سوفيكس SUVEX</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://suvex.io/project_school.jpg</image:loc>
+      <image:title>تصميم موقع أكاديمية تعليمية - سوفيكس</image:title>
+      <image:caption>منصة تعليمية متكاملة مع كورسات وشهادات من تصميم سوفيكس</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://suvex.io/project_cafe.jpg</image:loc>
+      <image:title>تصميم موقع كافيه احترافي - سوفيكس</image:title>
+      <image:caption>موقع كافيه احترافي مع متجر إلكتروني من تصميم سوفيكس SUVEX</image:caption>
+    </image:image>
+  </url>
+
+</urlset>

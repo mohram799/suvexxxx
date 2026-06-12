@@ -1,0 +1,36 @@
+{
+  "name": "SUVEX - سوفيكس",
+  "short_name": "SUVEX",
+  "description": "الوكالة الرقمية الرائدة في مصر لتصميم وبرمجة المواقع وتطبيقات الموبايل",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000511",
+  "theme_color": "#155dfc",
+  "lang": "ar",
+  "dir": "rtl",
+  "orientation": "portrait-primary",
+  "categories": ["business", "productivity"],
+  "icons": [
+    {
+      "src": "/logo.webp",
+      "sizes": "192x192",
+      "type": "image/webp",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "SUVEX Homepage"
+    }
+  ]
+}
